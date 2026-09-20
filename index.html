@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Übersicht</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --ink: #14202e;
+      --muted: #5b6878;
+      --line: #dfe4ea;
+      --accent: #1f4e79;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12171d;
+        --card: #1b222b;
+        --ink: #eaeff5;
+        --muted: #9aa8b8;
+        --line: #2c3745;
+        --accent: #8fc1ee;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 16px 64px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    main { max-width: 760px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .intro { margin: 0 0 28px; color: var(--muted); }
+    ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    li {
+      padding: 18px 20px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    h2 { margin: 0 0 2px; font-size: 18px; }
+    .sub { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+    .row__label { min-width: 84px; font-weight: 600; }
+    .row a {
+      flex: 1 1 260px;
+      color: var(--accent);
+      word-break: break-all;
+      text-decoration: none;
+    }
+    .row a:hover { text-decoration: underline; }
+    button {
+      padding: 7px 14px;
+      font: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Übersicht</h1>
+    <p class="intro">Alle Seiten in zwei Versionen. Link anklicken oder mit „Kopieren“ in die Zwischenablage legen.</p>
+
+    <ul>
+      <li>
+        <h2>VELORA V7</h2>
+        <p class="sub">Automobil</p>
+        <div class="row">
+          <span class="row__label">Version A</span>
+          <a href="site/?v=a">site/?v=a</a>
+          <button type="button" data-copy="site/?v=a">Kopieren</button>
+        </div>
+        <div class="row">
+          <span class="row__label">Version B</span>
+          <a href="site/?v=b">site/?v=b</a>
+          <button type="button" data-copy="site/?v=b">Kopieren</button>
+        </div>
+      </li>
+
+      <li>
+        <h2>NOVAÉ Skin</h2>
+        <p class="sub">Kosmetik</p>
+        <div class="row">
+          <span class="row__label">Version A</span>
+          <a href="novae-site/?v=a">novae-site/?v=a</a>
+          <button type="button" data-copy="novae-site/?v=a">Kopieren</button>
+        </div>
+        <div class="row">
+          <span class="row__label">Version B</span>
+          <a href="novae-site/?v=b">novae-site/?v=b</a>
+          <button type="button" data-copy="novae-site/?v=b">Kopieren</button>
+        </div>
+      </li>
+
+      <li>
+        <h2>NORDFELD</h2>
+        <p class="sub">Einzelhandel</p>
+        <div class="row">
+          <span class="row__label">Version A</span>
+          <a href="nordfeld-site/?v=a">nordfeld-site/?v=a</a>
+          <button type="button" data-copy="nordfeld-site/?v=a">Kopieren</button>
+        </div>
+        <div class="row">
+          <span class="row__label">Version B</span>
+          <a href="nordfeld-site/?v=b">nordfeld-site/?v=b</a>
+          <button type="button" data-copy="nordfeld-site/?v=b">Kopieren</button>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+    // "Kopieren": legt die vollständige Adresse (mit https://…) in die Zwischenablage.
+    document.addEventListener("click", function (event) {
+      var btn = event.target.closest("button[data-copy]");
+      if (!btn) return;
+      var url = new URL(btn.getAttribute("data-copy"), window.location.href).href;
+      var done = function (ok) {
+        var old = btn.textContent;
+        btn.textContent = ok ? "Kopiert ✓" : "Nicht möglich";
+        setTimeout(function () { btn.textContent = old; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+      } else {
+        done(false);
+      }
+    });
+  </script>
+</body>
+</html>

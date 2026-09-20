@@ -13,3 +13,6 @@
 # Systemdateien
 .DS_Store
 .Rhistory
+
+# Lokale Link-Notiz (enthält die Zuordnung A/B)
+/LINKS.md
