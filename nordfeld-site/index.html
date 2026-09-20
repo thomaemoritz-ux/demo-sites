@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NORDFELD – Gutes für jeden Tag | Angebote der Woche</title>
+  <meta name="description" content="NORDFELD: Frische, Vielfalt und faire Preise. Entdecke die Deals des Tages, aktuelle Wochenangebote und die Bestseller aus dem Sortiment.">
+  <meta name="theme-color" content="#012a4d">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Bedingung aus URL-Parameter und Bild-Komponente.
+       Synchron geladen, damit das Label im selben Frame wie das Bild erscheint. -->
+  <script src="js/condition.js"></script>
+  <script src="js/experimental-image.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- A. INFOLEISTE -->
+  <div class="topbar">
+    <p>Frische-Woche: Bis zu –30&nbsp;% auf ausgewählte Aktionsartikel.*</p>
+  </div>
+
+  <!-- B. HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top" aria-label="NORDFELD – zum Seitenanfang">
+        <svg class="brand__mark" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+          <path d="M15 28C7 27 3.5 20 4.5 11c8 1 12.500 7 10.500 17z" fill="#4f7f36"/>
+          <path d="M17 28c8-3 11.500-12 9.500-22-8 2-12.500 10-9.500 22z" fill="#618c37"/>
+        </svg>
+        <span class="brand__name">NORDFELD</span>
+      </a>
+
+      <form class="search" role="search">
+        <label class="visually-hidden" for="search-input">Suche</label>
+        <input class="search__input" id="search-input" type="search" placeholder="Wonach suchst du?" autocomplete="off">
+        <button class="search__btn" type="submit" aria-label="Suchen">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.500" cy="10.500" r="6.500"/><path d="m15.500 15.500 5 5"/></svg>
+        </button>
+      </form>
+
+      <div class="site-header__actions">
+        <button type="button" class="icon-btn icon-btn--text" data-open-dialog="dialog-info">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
+          <span>Filiale wählen</span>
+        </button>
+        <a class="icon-btn" href="#prospekte" aria-label="Prospekte">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h6"/></svg>
+        </a>
+        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Anmelden">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.500"/><path d="M5 20c.5-4 3.500-6 7-6s6.500 2 7 6"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Warenkorb">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.500l2 11h10l2-8H7"/><circle cx="9" cy="19.500" r="1.400"/><circle cx="17" cy="19.500" r="1.400"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="catnav" aria-label="Kategorien">
+    <ul class="catnav__list">
+      <li><a href="#angebote">Angebote</a></li>
+      <li><a href="#" data-dummy>Frische &amp; Genuss</a></li>
+      <li><a href="#" data-dummy>Küche &amp; Haushalt</a></li>
+      <li><a href="#" data-dummy>Werkstatt &amp; Auto</a></li>
+      <li><a href="#" data-dummy>Freizeit &amp; Wellness</a></li>
+      <li><a href="#" data-dummy>Baby &amp; Mode</a></li>
+      <li><a href="#prospekte">Prospekte</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <!-- C. HERO-BANNER (Text und Button sind Teil des Bildes) -->
+    <section class="hero" id="top" aria-label="Aktuelles Angebot">
+      <div class="container">
+        <a class="banner banner--hero" href="#angebote">
+          <experimental-image class="xi xi--hero">
+            <img src="images/nordfeld/hero_weekly.webp" width="1536" height="486"
+                 alt="NORDFELD: Gutes für jeden Tag. Frisch, vielseitig, preiswert. Jetzt entdecken. Einkaufstasche mit frischem Obst und Gemüse, Milch, Nudeln und Eiern auf einem Küchentisch"
+                 fetchpriority="high" decoding="async">
+          </experimental-image>
+        </a>
+      </div>
+    </section>
+
+    <!-- D. VORTEILE -->
+    <section class="usp" aria-label="Deine Vorteile">
+      <div class="container">
+        <ul class="usp__list">
+          <li>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20c0-8 5-14 15-15 0 10-6 15-15 15z"/><path d="M5 20c2-5 5-8 9-10"/></svg>
+            <span><strong>Frische Qualität</strong>Täglich in deiner Filiale</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12 12 20 4 12V4h8z"/><circle cx="8.500" cy="8.500" r="1.200"/></svg>
+            <span><strong>Faire Preise</strong>Jeden Tag, ohne Umwege</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.500"/><circle cx="17.500" cy="18" r="1.500"/></svg>
+            <span><strong>Bequem online</strong>Lieferung nach Hause</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.600 5.400 5.900.8-4.300 4.100 1 5.900L12 16.400 6.800 19.200l1-5.900L3.500 9.200l5.900-.8z"/></svg>
+            <span><strong>Nordfeld Plus</strong>Coupons &amp; Vorteile</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- E. DEALS DES TAGES -->
+    <section class="section" id="angebote" aria-labelledby="deals-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 class="h2" id="deals-title">Deals des Tages</h2>
+            <p class="section-head__sub">Nur diese Woche, 21.09. – 26.09.2026</p>
+          </div>
+          <a class="more" href="#bestseller">Alle anzeigen</a>
+        </div>
+
+        <ul class="products products--deals">
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_espresso_machine.webp" width="358" height="360"
+                       alt="Siebträger-Espressomaschine in Schwarz und Edelstahl mit gefüllter Espressotasse"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+                <span class="badge">–27&nbsp;%</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Siebträger-Espressomaschine, 15&nbsp;bar, 1,5&nbsp;l Wassertank</h3>
+                <p class="card__desc">Mit Milchaufschäumdüse</p>
+                <div class="card__foot">
+                  <span class="price">79,99<small>&nbsp;€*</small></span>
+                  <span class="price-old">statt 109,99&nbsp;€</span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_drill.webp" width="360" height="360"
+                       alt="Akku-Bohrschrauber in Grün und Schwarz mit Koffer, Ersatzakku, Bohrern und Bits"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+                <span class="badge">–29&nbsp;%</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Akku-Bohrschrauber-Set, 18&nbsp;V, mit 2&nbsp;Akkus, Bits &amp; Koffer</h3>
+                <p class="card__desc">Für Heim &amp; Werkstatt</p>
+                <div class="card__foot">
+                  <span class="price">49,99<small>&nbsp;€*</small></span>
+                  <span class="price-old">statt 69,99&nbsp;€</span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_camping_chair.webp" width="358" height="358"
+                       alt="Grüner Camping-Faltstuhl mit schwarzem Gestell und Getränkehalter"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+                <span class="badge">–25&nbsp;%</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Camping-Faltstuhl mit Getränkehalter</h3>
+                <p class="card__desc">Leicht &amp; faltbar</p>
+                <div class="card__foot">
+                  <span class="price">14,99<small>&nbsp;€*</small></span>
+                  <span class="price-old">statt 19,99&nbsp;€</span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_massage_gun.webp" width="360" height="358"
+                       alt="Schwarze Massagepistole mit vier Aufsätzen"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+                <span class="badge">–30&nbsp;%</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Massagepistole mit 4&nbsp;Aufsätzen, 6&nbsp;Stufen</h3>
+                <p class="card__desc">Zur Entspannung nach dem Training</p>
+                <div class="card__foot">
+                  <span class="price">34,99<small>&nbsp;€*</small></span>
+                  <span class="price-old">statt 49,99&nbsp;€</span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- F. HIGHLIGHTS AUS DEM SORTIMENT (Kategorie-Banner) -->
+    <section class="section section--grey" id="sortiment" aria-labelledby="highlights-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 class="h2" id="highlights-title">Highlights aus dem Sortiment</h2>
+            <p class="section-head__sub">Entdecke, was diese Woche zählt</p>
+          </div>
+        </div>
+
+        <ul class="banners">
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--tall xi--care">
+                <img src="images/nordfeld/category_care.webp" width="505" height="287"
+                     alt="Pflege, die zu dir passt. Kosmetik und Körperpflege für jeden Tag. Duschgel, Bodylotion und Gesichtscreme von NORDFELD. Zum Sortiment"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--tall xi--cleaning">
+                <img src="images/nordfeld/category_cleaning.webp" width="505" height="287"
+                     alt="Sauberkeit leicht gemacht. Haushalt und Reinigung zum Wohlfühlpreis. Allzweckreiniger, Vollwaschmittel und Putztücher. Jetzt entdecken"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--tall xi--living">
+                <img src="images/nordfeld/category_living.webp" width="508" height="287"
+                     alt="Schöner wohnen. Wohnaccessoires zum Wohlfühlen. Sofa mit Kissen, Couchtisch, Kerze und Zimmerpflanze. Jetzt entdecken"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--short xi--breakfast">
+                <img src="images/nordfeld/category_breakfast.webp" width="508" height="234"
+                     alt="Lecker in den Tag. Frühstücksvielfalt für die ganze Familie. Müsli mit Beeren, Marmelade, Orangensaft und Kaffee. Zum Sortiment"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--short xi--fresh">
+                <img src="images/nordfeld/category_fresh.webp" width="505" height="234"
+                     alt="Frische Vielfalt. Obst und Gemüse aus besten Regionen. Holzkiste mit Tomaten, Möhren und Salat. Zur Auswahl"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+          <li>
+            <a class="banner" href="#" data-dummy>
+              <experimental-image class="xi xi--short xi--grill">
+                <img src="images/nordfeld/category_grill.webp" width="505" height="234"
+                     alt="Alles für deinen Grillmoment. Fleisch, Fisch und mehr für unvergessliche Tage. Grillfleisch mit Rosmarin auf dem Rost. Jetzt entdecken"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- G. BESTSELLER -->
+    <section class="section" id="bestseller" aria-labelledby="best-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 class="h2" id="best-title">Unsere Bestseller</h2>
+            <p class="section-head__sub">Das kaufen unsere Kundinnen und Kunden am liebsten</p>
+          </div>
+        </div>
+
+        <ul class="products">
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_fresh_produce.webp" width="360" height="360"
+                       alt="Frisches Obst und Gemüse: Salat, Brokkoli, Paprika, Tomaten, Äpfel, Möhren, Bananen und Orangen"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Obst- &amp; Gemüsekiste, ca.&nbsp;4&nbsp;kg</h3>
+                <p class="card__desc">Frisch &amp; vielseitig · 1&nbsp;kg = 3,00&nbsp;€</p>
+                <div class="card__foot">
+                  <span class="price">11,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_italian_pantry.webp" width="358" height="360"
+                       alt="Penne in Folienbeutel, Glas Tomatensauce, Tomaten, Basilikum und Knoblauch"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Pasta &amp; Sugo-Set: Penne 500&nbsp;g + Tomatensauce 400&nbsp;g</h3>
+                <p class="card__desc">Italienische Klassiker</p>
+                <div class="card__foot">
+                  <span class="price">3,49<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_coffee.webp" width="358" height="360"
+                       alt="Kaffeebohnen in einer Papiertüte mit Sichtfenster neben einer Tasse Kaffee"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Kaffeebohnen, ganze Bohne, 1&nbsp;kg</h3>
+                <p class="card__desc">Kräftig &amp; aromatisch · 1&nbsp;kg = 9,99&nbsp;€</p>
+                <div class="card__foot">
+                  <span class="price">9,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_frying_pans.webp" width="358" height="360"
+                       alt="Drei schwarze Bratpfannen in verschiedenen Größen, ineinander gestellt"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Bratpfannen-Set, 3-teilig (20/24/28&nbsp;cm)</h3>
+                <p class="card__desc">Induktionsgeeignet</p>
+                <div class="card__foot">
+                  <span class="price">24,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_storage_boxes.webp" width="360" height="360"
+                       alt="Drei gestapelte transparente Aufbewahrungsboxen mit Deckel und Klappverschluss"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Aufbewahrungsboxen mit Deckel, 3er-Set, je 15&nbsp;l</h3>
+                <p class="card__desc">Stapelbar &amp; transparent</p>
+                <div class="card__foot">
+                  <span class="price">12,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_baby_bodysuits.webp" width="360" height="360"
+                       alt="Drei Baby-Bodys: einer mit Bärchenmuster, einer in Salbeigrün und einer gestreift"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Baby-Bodys, 3er-Pack, aus Baumwolle</h3>
+                <p class="card__desc">Weich &amp; hautfreundlich</p>
+                <div class="card__foot">
+                  <span class="price">7,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_outdoor_jacket.webp" width="360" height="358"
+                       alt="Blaue Damen-Outdoorjacke mit Kapuze und Reißverschluss"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Damen-Outdoorjacke, wasserabweisend, mit Kapuze</h3>
+                <p class="card__desc">Für jedes Herbstwetter</p>
+                <div class="card__foot">
+                  <span class="price">29,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <experimental-image class="xi xi--product">
+                  <img src="images/nordfeld/product_car_care.webp" width="358" height="358"
+                       alt="Autopflege-Set mit Sprühflaschen, Mikrofasertuch, Schwamm und Bürste"
+                       loading="lazy" decoding="async">
+                </experimental-image>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Autopflege-Set, 5-teilig</h3>
+                <p class="card__desc">Reiniger, Tuch, Schwamm &amp; Bürste</p>
+                <div class="card__foot">
+                  <span class="price">14,99<small>&nbsp;€*</small></span>
+                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="fineprint">* Alle Preise in Euro inkl. MwSt. Streichpreis: bisheriger NORDFELD-Preis. Angebote gültig solange der Vorrat reicht. Abbildungen können vom Produkt abweichen.</p>
+      </div>
+    </section>
+
+    <!-- H. PROSPEKTE + NORDFELD PLUS -->
+    <section class="section section--grey" id="prospekte" aria-labelledby="flyer-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2 class="h2" id="flyer-title">Unsere Aktionsprospekte</h2>
+            <p class="section-head__sub">Immer wissen, was in deiner Filiale gilt</p>
+          </div>
+        </div>
+
+        <ul class="flyers">
+          <li class="flyer reveal">
+            <span class="flyer__tag">Diese Woche</span>
+            <h3 class="h3">Aktionsprospekt</h3>
+            <p class="flyer__date">21.09.2026 – 26.09.2026</p>
+            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+          </li>
+          <li class="flyer reveal">
+            <span class="flyer__tag">Nächste Woche</span>
+            <h3 class="h3">Aktionsprospekt</h3>
+            <p class="flyer__date">28.09.2026 – 03.10.2026</p>
+            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+          </li>
+          <li class="flyer reveal">
+            <span class="flyer__tag">Vorschau</span>
+            <h3 class="h3">Aktionsprospekt</h3>
+            <p class="flyer__date">05.10.2026 – 10.10.2026</p>
+            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+          </li>
+        </ul>
+
+        <div class="plus reveal" id="plus">
+          <div>
+            <p class="plus__eyebrow">Nordfeld Plus</p>
+            <h3 class="plus__title">Mit Nordfeld Plus jede Woche sparen.</h3>
+            <p class="plus__text">Persönliche Coupons, Vorteile und Punkte bei jedem Einkauf – kostenlos in der App.</p>
+          </div>
+          <button type="button" class="btn btn--yellow" data-open-dialog="dialog-info">Jetzt anmelden</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- I. BELIEBTE KATEGORIEN -->
+    <section class="section" aria-labelledby="cats-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="h2" id="cats-title">Unsere beliebtesten Kategorien</h2>
+        </div>
+
+        <div class="catlinks">
+          <div class="catlinks__col reveal">
+            <h3 class="h4">Frische &amp; Genuss</h3>
+            <ul>
+              <li><a href="#" data-dummy>Obst &amp; Gemüse</a></li>
+              <li><a href="#" data-dummy>Kaffee &amp; Tee</a></li>
+              <li><a href="#" data-dummy>Pasta &amp; Saucen</a></li>
+              <li><a href="#" data-dummy>Frühstück</a></li>
+              <li><a href="#" data-dummy>Grillen</a></li>
+            </ul>
+          </div>
+          <div class="catlinks__col reveal">
+            <h3 class="h4">Küche &amp; Haushalt</h3>
+            <ul>
+              <li><a href="#" data-dummy>Kaffeemaschinen</a></li>
+              <li><a href="#" data-dummy>Pfannen &amp; Töpfe</a></li>
+              <li><a href="#" data-dummy>Aufbewahrung</a></li>
+              <li><a href="#" data-dummy>Reinigung</a></li>
+              <li><a href="#" data-dummy>Wohnaccessoires</a></li>
+            </ul>
+          </div>
+          <div class="catlinks__col reveal">
+            <h3 class="h4">Werkstatt &amp; Freizeit</h3>
+            <ul>
+              <li><a href="#" data-dummy>Akku-Bohrschrauber</a></li>
+              <li><a href="#" data-dummy>Autopflege</a></li>
+              <li><a href="#" data-dummy>Camping</a></li>
+              <li><a href="#" data-dummy>Massage &amp; Wellness</a></li>
+              <li><a href="#" data-dummy>Outdoorjacken</a></li>
+            </ul>
+          </div>
+          <div class="catlinks__col reveal">
+            <h3 class="h4">Baby &amp; Pflege</h3>
+            <ul>
+              <li><a href="#" data-dummy>Babybodys</a></li>
+              <li><a href="#" data-dummy>Kinderkleidung</a></li>
+              <li><a href="#" data-dummy>Körperpflege</a></li>
+              <li><a href="#" data-dummy>Gesichtspflege</a></li>
+              <li><a href="#" data-dummy>Duschen &amp; Baden</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- J. FOOTER -->
+  <footer class="site-footer" id="unternehmen">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand brand--footer" href="#top" aria-label="NORDFELD – zum Seitenanfang">
+            <svg class="brand__mark" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+              <path d="M15 28C7 27 3.500 20 4.500 11c8 1 12.500 7 10.500 17z" fill="#7fa653"/>
+              <path d="M17 28c8-3 11.500-12 9.500-22-8 2-12.500 10-9.500 22z" fill="#9dc46a"/>
+            </svg>
+            <span class="brand__name">NORDFELD</span>
+          </a>
+          <p class="footer__claim">Gutes liegt nah.</p>
+        </div>
+
+        <nav class="footer__col" aria-labelledby="f-service">
+          <h2 class="footer__title" id="f-service">Kundenservice</h2>
+          <ul>
+            <li><a href="#" data-dummy>Hilfe &amp; Kontakt</a></li>
+            <li><a href="#" data-dummy>Versand &amp; Lieferung</a></li>
+            <li><a href="#" data-dummy>Rückgabe &amp; Erstattung</a></li>
+            <li><a href="#" data-dummy>Häufige Fragen</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-labelledby="f-filiale">
+          <h2 class="footer__title" id="f-filiale">Filiale &amp; Angebote</h2>
+          <ul>
+            <li><a href="#" data-dummy>Filialfinder</a></li>
+            <li><a href="#prospekte">Aktionsprospekte</a></li>
+            <li><a href="#plus">Nordfeld Plus</a></li>
+            <li><a href="#" data-dummy>Gutscheine</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-labelledby="f-unternehmen">
+          <h2 class="footer__title" id="f-unternehmen">Unternehmen</h2>
+          <ul>
+            <li><a href="#" data-dummy>Über NORDFELD</a></li>
+            <li><a href="#" data-dummy>Nachhaltigkeit</a></li>
+            <li><a href="#" data-dummy>Karriere</a></li>
+            <li><a href="#" data-dummy>Presse</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-labelledby="f-recht">
+          <h2 class="footer__title" id="f-recht">Rechtliches</h2>
+          <ul>
+            <li><a href="#" data-dummy>Datenschutz</a></li>
+            <li><a href="#" data-dummy>Impressum</a></li>
+            <li><a href="#" data-dummy>AGB</a></li>
+            <li><a href="#" data-dummy>Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 NORDFELD</p>
+        <p class="footer__note">NORDFELD ist eine fiktive Marke.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dummy-Dialog (intern, keine externen Seiten) -->
+  <dialog class="dialog" id="dialog-info" aria-labelledby="dialog-info-title">
+    <form method="dialog" class="dialog__body">
+      <h2 class="h3" id="dialog-info-title">NORDFELD</h2>
+      <p>Dieser Bereich wird gerade vorbereitet. Bis dahin kannst du die aktuellen Angebote auf dieser Seite entdecken.</p>
+      <button class="btn btn--primary" value="close">Schließen</button>
+    </form>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

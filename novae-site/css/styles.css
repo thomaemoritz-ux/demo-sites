@@ -1,0 +1,705 @@
+/* ==========================================================================
+   NOVAÉ Skin – Radiant Serum
+   Ein Stylesheet für beide Experimentalbedingungen. Es gibt keine
+   bedingungsabhängigen Regeln, außer dem Label-Overlay (.xi__label),
+   das nur dann im DOM existiert, wenn die Bedingung "ai" aktiv ist.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --cream: #f7f4ee;
+  --ivory: #efe9df;
+  --white: #ffffff;
+  --ink: #1d1b19;
+  --ink-soft: #4a4540;
+  --muted: #7a736b;
+  --line: #ddd5c9;
+
+  --deep: #2a2622;
+  --on-deep: #f3eee6;
+  --on-deep-muted: #b9b0a4;
+  --line-deep: #4a443d;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: "Avenir Next", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+
+  --maxw: 1200px;
+  --gutter: 40px;
+  --header-h: 80px;
+  --section-pad: clamp(72px, 10vw, 144px);
+}
+
+@media (max-width: 1024px) {
+  :root { --gutter: 32px; }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 20px; --header-h: 68px; }
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / Basis
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2, h3, h4, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+
+a { color: inherit; }
+button { font-family: inherit; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+section[id], footer[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+.skip-link:focus { top: 12px; }
+
+.container {
+  width: 100%;
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typografie
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.7vw, 50px);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+.h3 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.2vw, 27px);
+  line-height: 1.2;
+  font-weight: 400;
+}
+.h4 {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.lead {
+  margin-top: 24px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 32em;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 32px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.btn--primary { background: var(--ink); color: #fff; }
+.btn--primary:hover { background: #000; }
+.btn--outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: #fff; }
+.btn--small { min-height: 42px; padding: 0 22px; font-size: 11.5px; }
+
+/* --------------------------------------------------------------------------
+   5. Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.site-header.is-scrolled,
+.site-header.is-open {
+  background: rgba(250, 248, 243, 0.95);
+  border-bottom-color: var(--line);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.site-header__inner {
+  height: 100%;
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "nav brand actions";
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  grid-area: brand;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand__name {
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  margin-right: -0.3em; /* optischer Ausgleich des letzten Buchstabenabstands */
+}
+.brand__sub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-nav { grid-area: nav; justify-self: start; }
+.site-nav ul { display: flex; gap: 32px; }
+.site-nav a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a:hover::after { transform: scaleX(1); }
+
+.site-header__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.nav-toggle__bar {
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.25s ease, top 0.25s ease;
+}
+.nav-toggle__bar:nth-child(1) { top: 15px; }
+.nav-toggle__bar:nth-child(2) { top: 24px; }
+.site-header.is-open .nav-toggle__bar:nth-child(1) { top: 19.5px; transform: rotate(45deg); }
+.site-header.is-open .nav-toggle__bar:nth-child(2) { top: 19.5px; transform: rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .site-header__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "brand actions";
+  }
+  .brand { justify-self: start; align-items: flex-start; }
+  .brand__name { font-size: 24px; }
+  .nav-toggle { display: block; }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 8px var(--gutter) 28px;
+    background: rgba(250, 248, 243, 0.98);
+    border-bottom: 1px solid var(--line);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .site-header.is-open .site-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s;
+  }
+  .site-nav ul { flex-direction: column; gap: 0; }
+  .site-nav li + li { border-top: 1px solid var(--line); }
+  .site-nav a { display: block; padding: 17px 0; font-size: 13px; }
+  .site-nav a::after { display: none; }
+}
+
+/* Sehr schmale Geräte (z. B. 320 px): Header kompakter, damit Menü-Icon sichtbar bleibt */
+@media (max-width: 380px) {
+  .site-header__inner { padding-inline: 16px; gap: 12px; }
+  .site-header .brand__name { font-size: 20px; letter-spacing: 0.24em; margin-right: -0.24em; }
+  .site-header .btn--small { padding: 0 14px; font-size: 10.5px; letter-spacing: 0.1em; }
+  .site-header__actions { gap: 4px; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Experimentelles Bild + KI-Label
+   -------------------------------------------------------------------------- */
+experimental-image {
+  display: block;
+  position: relative;      /* Bezugsrahmen für das absolut positionierte Label */
+  overflow: hidden;
+  background: #e6dfd3;
+}
+
+.xi img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Randartefakte der Quelldateien ausblenden (nur Darstellung,
+     die Bilddateien bleiben unverändert). Ursprung unten rechts. */
+  transform: scale(var(--trim, 1));
+  transform-origin: var(--trim-origin, 100% 100%);
+}
+
+.xi__label {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  padding: 6px 9px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  color: #151515;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@media (max-width: 720px) {
+  .xi__label { right: 10px; bottom: 10px; font-size: 11px; }
+}
+
+/* Formate je Bild (stabile Boxen -> kein Layout Shift).
+   --trim: gemessene Randartefakte der Quelldateien
+   hero: 1 Spalte rechts (Ursprung oben links) · product: 2 Zeilen oben/4 Spalten links
+   ingredient: 1 Zeile oben · routine: 2 Zeilen oben · application: keine */
+.xi--hero        { aspect-ratio: 824 / 507; --trim: 1.005; --trim-origin: 0 0; }
+.xi--product     { aspect-ratio: 518 / 506; --trim: 1.012; }
+.xi--ingredient  { aspect-ratio: 475 / 506; --trim: 1.008; }
+.xi--application { aspect-ratio: 704 / 507; --trim: 1; }
+.xi--routine     { aspect-ratio: 527 / 506; --trim: 1.008; }
+
+/* --------------------------------------------------------------------------
+   7. Sektionen (Grundlayout)
+   -------------------------------------------------------------------------- */
+.section { padding-block: var(--section-pad); }
+.section--white { background: var(--white); }
+.section--cream,
+.section--paper { background: var(--cream); }
+.section--ivory { background: var(--ivory); }
+.section--deep  { background: var(--deep); color: var(--on-deep); }
+
+.section--deep .eyebrow { color: var(--on-deep-muted); }
+
+.section-head { margin-bottom: clamp(40px, 6vw, 80px); }
+
+/* Bild + Text nebeneinander */
+.media-split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(40px, 7vw, 104px);
+  align-items: center;
+}
+.media-split--reverse { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+.media-split--wide    { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+
+@media (max-width: 900px) {
+  .media-split,
+  .media-split--reverse,
+  .media-split--wide { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(54vw, 960px));
+  align-items: center;
+  min-height: 88vh;
+  min-height: 88svh;
+  background: var(--cream);
+}
+
+.hero__text {
+  padding: calc(var(--header-h) + 32px) clamp(20px, 2.5vw, 48px) 64px clamp(var(--gutter), 6vw, 112px);
+}
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.2vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  max-width: 11em;
+}
+.hero__sub {
+  margin-top: 24px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 28em;
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero__text { padding: calc(var(--header-h) + 24px) var(--gutter) 48px; }
+}
+
+/* --------------------------------------------------------------------------
+   9. Produkt / Kennzahlen
+   -------------------------------------------------------------------------- */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+.facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+.facts__value { font-family: var(--serif); font-size: 20px; line-height: 1.25; }
+.facts__label { font-size: 14px; color: var(--muted); }
+
+@media (max-width: 520px) {
+  .facts { grid-template-columns: 1fr; gap: 16px; }
+  .facts li { flex-direction: row; justify-content: space-between; align-items: baseline; }
+}
+
+/* --------------------------------------------------------------------------
+   10. Vorteile
+   -------------------------------------------------------------------------- */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+.benefit { padding-top: 28px; border-top: 1px solid var(--ink); }
+.benefit__num {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+.benefit p { margin-top: 14px; font-size: 16px; color: var(--ink-soft); max-width: 24em; }
+
+/* --------------------------------------------------------------------------
+   11. Wirkstoffe
+   -------------------------------------------------------------------------- */
+.ingredients { margin-top: 36px; }
+.ingredients li {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+.ingredients li:last-child { border-bottom: 1px solid var(--line); }
+.ingredients p { margin-top: 6px; font-size: 16px; color: var(--ink-soft); max-width: 30em; }
+.note { margin-top: 20px; font-size: 14px; color: var(--muted); }
+
+/* --------------------------------------------------------------------------
+   12. Anwendung (dunkel)
+   -------------------------------------------------------------------------- */
+.steps { margin-top: 36px; }
+.steps li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line-deep);
+}
+.steps li:last-child { border-bottom: 1px solid var(--line-deep); }
+.steps__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: var(--serif);
+  font-size: 20px;
+  border: 1px solid var(--on-deep-muted);
+  border-radius: 50%;
+}
+.steps p { margin-top: 4px; font-size: 16px; color: var(--on-deep-muted); max-width: 28em; }
+
+/* --------------------------------------------------------------------------
+   13. Routine
+   -------------------------------------------------------------------------- */
+.routine { margin-top: 36px; }
+.routine li {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.routine li:last-child { border-bottom: 1px solid var(--line); }
+.routine li.is-current {
+  margin-inline: -20px;
+  padding-inline: 20px;
+  background: var(--white);
+}
+.routine__step {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.routine p { margin-top: 4px; font-size: 16px; color: var(--ink-soft); max-width: 28em; }
+
+/* --------------------------------------------------------------------------
+   14. Final CTA
+   -------------------------------------------------------------------------- */
+.cta { text-align: center; }
+.cta__inner { display: flex; flex-direction: column; align-items: center; }
+.cta__title { font-size: clamp(36px, 5.2vw, 72px); }
+.cta__sub {
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 44px;
+}
+
+/* --------------------------------------------------------------------------
+   15. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--on-deep);
+  padding-block: clamp(64px, 8vw, 104px) 32px;
+}
+.site-footer .brand { color: var(--on-deep); align-items: flex-start; }
+.site-footer .brand__sub { color: var(--on-deep-muted); }
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr));
+  gap: 40px 32px;
+  padding-bottom: 64px;
+}
+.footer__claim {
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-deep-muted);
+}
+.footer__title {
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-deep);
+}
+.footer__col li + li { margin-top: 10px; }
+.footer__col a {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--on-deep-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer__col a:hover { color: var(--on-deep); }
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-deep);
+  font-size: 13px;
+  color: var(--on-deep-muted);
+}
+.footer__note { font-size: 12px; opacity: 0.85; }
+
+@media (max-width: 1024px) {
+  .footer__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* --------------------------------------------------------------------------
+   16. Dialog (Dummy-Shop)
+   -------------------------------------------------------------------------- */
+.dialog {
+  width: calc(100% - 40px);
+  max-width: 440px;
+  padding: 0;
+  border: 0;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+.dialog::backdrop { background: rgba(29, 27, 25, 0.55); }
+.dialog__body {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+  padding: 36px 32px 32px;
+}
+.dialog__body p { color: var(--ink-soft); font-size: 16px; }
+.dialog__body .btn { margin-top: 8px; }
+
+/* --------------------------------------------------------------------------
+   17. Responsive: Tablet / Mobil
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .benefits { gap: 32px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+
+  .benefits { grid-template-columns: 1fr; gap: 36px; }
+  .benefit__num { margin-bottom: 20px; }
+
+  .hero__actions,
+  .cta__actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+
+  .routine li.is-current { margin-inline: -16px; padding-inline: 16px; }
+}
+
+/* --------------------------------------------------------------------------
+   18. Reveal (dezent, nur Text; Bilder und Labels werden nicht animiert)
+   -------------------------------------------------------------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+.benefits .reveal:nth-child(2) { transition-delay: 0.08s; }
+.benefits .reveal:nth-child(3) { transition-delay: 0.16s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .site-header, .site-nav, .site-nav a::after { transition: none; }
+}

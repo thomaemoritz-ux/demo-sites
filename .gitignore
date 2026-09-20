@@ -1,0 +1,15 @@
+# Nur die Websites sollen veröffentlicht werden.
+# Alles Folgende bleibt lokal auf diesem Rechner.
+
+# Original-Bilder und ZIP-Archive (die fertigen Bilder liegen in den Site-Ordnern)
+*.zip
+/*.png
+
+# Projekt-Notizen und Werkzeug-Konfiguration (enthalten Studiendetails)
+/CLAUDE.md
+*/README.md
+/.claude/
+
+# Systemdateien
+.DS_Store
+.Rhistory
