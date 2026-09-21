@@ -10,10 +10,10 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Bedingung aus URL-Parameter und Hinweis-Komponente.
-       Synchron geladen, damit der Hinweis im ersten Frame korrekt dargestellt wird. -->
+  <!-- Bedingung aus URL-Parameter und Bild-Komponente.
+       Synchron geladen, damit das Label im selben Frame wie das Bild erscheint. -->
   <script src="js/condition.js"></script>
-  <script src="js/ai-note.js"></script>
+  <script src="js/experimental-image.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -72,36 +72,36 @@
         <!-- B. GALERIE -->
         <section class="gallery" aria-label="Produktbilder" id="gallery">
           <div class="gallery__track" id="gallery-track" tabindex="0">
-            <figure class="gallery__item gallery__item--medium">
+            <experimental-image class="gallery__item gallery__item--medium">
               <img src="images/arlowe/medium_model.webp" width="508" height="510"
                    alt="Model in einem petrolblauen Sweatshirt mit Grafikprint, die Hände in den Hosentaschen"
                    fetchpriority="high" decoding="async">
-            </figure>
-            <figure class="gallery__item gallery__item--full">
+            </experimental-image>
+            <experimental-image class="gallery__item gallery__item--full">
               <img src="images/arlowe/full_model.webp" width="510" height="510"
                    alt="Ganzkörperansicht: Model in petrolblauem Sweatshirt und hellblauer Jeans mit weitem Bein"
                    loading="lazy" decoding="async">
-            </figure>
-            <figure class="gallery__item gallery__item--front">
+            </experimental-image>
+            <experimental-image class="gallery__item gallery__item--front">
               <img src="images/arlowe/product_front.webp" width="510" height="510"
                    alt="Petrolblaues Sweatshirt von vorn mit kleinem Grafikprint auf der Brust"
                    loading="lazy" decoding="async">
-            </figure>
-            <figure class="gallery__item gallery__item--back">
+            </experimental-image>
+            <experimental-image class="gallery__item gallery__item--back">
               <img src="images/arlowe/product_back.webp" width="508" height="510"
                    alt="Petrolblaues Sweatshirt von hinten mit großem abstraktem Grafikprint"
                    loading="lazy" decoding="async">
-            </figure>
-            <figure class="gallery__item gallery__item--detail">
+            </experimental-image>
+            <experimental-image class="gallery__item gallery__item--detail">
               <img src="images/arlowe/detail_model.webp" width="510" height="510"
                    alt="Detailansicht: Model im Halbprofil mit Blick auf Rundhalsausschnitt und Print"
                    loading="lazy" decoding="async">
-            </figure>
-            <figure class="gallery__item gallery__item--print">
+            </experimental-image>
+            <experimental-image class="gallery__item gallery__item--print">
               <img src="images/arlowe/print_detail.webp" width="510" height="510"
                    alt="Nahaufnahme des Grafikprints auf dem petrolblauen Baumwollstoff"
                    loading="lazy" decoding="async">
-            </figure>
+            </experimental-image>
           </div>
 
           <div class="gallery__ui">
@@ -153,10 +153,8 @@
             Kostenloser Versand in die Filiale
           </p>
 
-          <!-- Beschreibung. Der letzte Satz ist der Hinweis zu den Bildern
-               (Version B sichtbar; in Version A unsichtbar und ausgeblendet,
-               damit Zeilenumbrüche und Höhen identisch bleiben). -->
-          <p class="desc">Weiches Sweatshirt aus 100&nbsp;% Baumwolle. Gerader Schnitt mit Rundhalsausschnitt und langen Ärmeln. Kleiner Grafikprint auf der Brust, großer Print auf dem Rücken. <ai-note>Diese Bilder wurden mit KI generiert</ai-note></p>
+          <!-- Beschreibung -->
+          <p class="desc">Weiches Sweatshirt aus 100&nbsp;% Baumwolle. Gerader Schnitt mit Rundhalsausschnitt und langen Ärmeln. Kleiner Grafikprint auf der Brust, großer Print auf dem Rücken.</p>
 
           <div class="accordion">
             <details>
