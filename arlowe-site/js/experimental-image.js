@@ -8,11 +8,14 @@
  *
  *   Label-Text: "Diese Bilder wurden von KI generiert"
  *
- * Attribut (entspricht dem Prop "showAiLabel"):
- *   show-ai-label   Label wird angezeigt
+ * Attribute:
+ *   data-ai-label   Dieses Bild trägt das Label (hier: nur das erste Bild
+ *                   der Galerie, wie beim Vorbild-Shop)
+ *   show-ai-label   Label wird angezeigt (entspricht dem Prop "showAiLabel")
  *
- * Ohne explizites Attribut wird die Bedingung aus window.VELORA_CONDITION
- * übernommen (siehe condition.js). Das Bild selbst wird nie verändert oder
+ * Ohne explizites show-ai-label wird die Bedingung aus
+ * window.VELORA_CONDITION übernommen (siehe condition.js): Nur Bilder mit
+ * data-ai-label zeigen das Label, und nur in Version B. Das Bild selbst wird nie verändert oder
  * dupliziert. Das Label ist absolut positioniert und beeinflusst daher weder
  * Elementgröße noch Layout oder Scrollhöhe. In Version A existiert kein
  * Label-Element im DOM.
@@ -26,7 +29,11 @@
     }
 
     connectedCallback() {
-      if (window.VELORA_CONDITION === "ai" && !this.hasAttribute("show-ai-label")) {
+      if (
+        window.VELORA_CONDITION === "ai" &&
+        this.hasAttribute("data-ai-label") &&
+        !this.hasAttribute("show-ai-label")
+      ) {
         this.setAttribute("show-ai-label", "");
         return; // attributeChangedCallback rendert das Label
       }
