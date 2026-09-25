@@ -28,51 +28,18 @@
     if (mq.matches) setMenu(false);
   });
 
-  /* Klicks: Dialoge, Platzhalter-Links, Aufklappbereiche */
+  /* Links auf einen Aufklappbereich (<details>) öffnen diesen zusätzlich */
+  function openTarget(hash) {
+    if (!hash || hash.length < 2) return;
+    var target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (target && target.tagName === "DETAILS") target.open = true;
+  }
   document.addEventListener("click", function (event) {
-    var opener = event.target.closest("[data-open-dialog]");
-    if (opener) {
-      var dialog = document.getElementById(opener.getAttribute("data-open-dialog"));
-      if (dialog && typeof dialog.showModal === "function") dialog.showModal();
-      return;
-    }
-
-    // Klick auf den Backdrop schließt den Dialog
-    if (event.target instanceof HTMLDialogElement && event.target.open) {
-      event.target.close();
-      return;
-    }
-
-    // Größentabelle: Bereich "Maße" öffnen
-    var detailsOpener = event.target.closest("[data-open-details]");
-    if (detailsOpener) {
-      var details = document.getElementById(detailsOpener.getAttribute("data-open-details"));
-      if (details) {
-        details.open = true;
-        details.scrollIntoView({ block: "center", behavior: "smooth" });
-      }
-      return;
-    }
-
-    // Platzhalter-Links: nichts öffnen, nicht springen
-    var dummy = event.target.closest("a[data-dummy]");
-    if (dummy) event.preventDefault();
+    var link = event.target.closest('a[href^="#"]');
+    if (link) openTarget(link.getAttribute("href"));
   });
-
-  /* Formulare (Newsletter): ohne Funktion, ohne Seitenwechsel */
-  document.addEventListener("submit", function (event) {
-    if (event.target.closest(".newsletter__form")) event.preventDefault();
-  });
-
-  /* Größenwahl */
-  var sizes = document.querySelectorAll(".size");
-  sizes.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var wasPressed = btn.getAttribute("aria-pressed") === "true";
-      sizes.forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
-      btn.setAttribute("aria-pressed", String(!wasPressed));
-    });
-  });
+  window.addEventListener("hashchange", function () { openTarget(window.location.hash); });
+  openTarget(window.location.hash);
 
   /* Galerie (mobil): Pfeile und Zähler */
   var track = document.getElementById("gallery-track");

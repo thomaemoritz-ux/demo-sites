@@ -35,25 +35,6 @@
     if (mq.matches) setMenu(false);
   });
 
-  /* Dialoge (Dummy-Konfigurator / Probefahrt) */
-  document.addEventListener("click", function (event) {
-    var opener = event.target.closest("[data-open-dialog]");
-    if (opener) {
-      var dialog = document.getElementById(opener.getAttribute("data-open-dialog"));
-      if (dialog && typeof dialog.showModal === "function") dialog.showModal();
-      return;
-    }
-
-    // Klick auf den Backdrop schließt den Dialog
-    if (event.target instanceof HTMLDialogElement && event.target.open) {
-      event.target.close();
-    }
-
-    // Platzhalter-Links im Footer: nichts öffnen, nicht springen
-    var dummy = event.target.closest("a[data-dummy]");
-    if (dummy) event.preventDefault();
-  });
-
   /* Reveal-Effekt (nur Text/Kennzahlen, nie Bilder oder Labels) */
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

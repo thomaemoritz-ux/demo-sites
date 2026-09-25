@@ -37,25 +37,20 @@
       <form class="search" role="search">
         <label class="visually-hidden" for="search-input">Suche</label>
         <input class="search__input" id="search-input" type="search" placeholder="Wonach suchst du?" autocomplete="off">
+        <p class="search__msg" id="search-msg" role="status" hidden></p>
         <button class="search__btn" type="submit" aria-label="Suchen">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.500" cy="10.500" r="6.500"/><path d="m15.500 15.500 5 5"/></svg>
         </button>
       </form>
 
       <div class="site-header__actions">
-        <button type="button" class="icon-btn icon-btn--text" data-open-dialog="dialog-info">
+        <a class="icon-btn icon-btn--text" href="#service">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
           <span>Filiale wählen</span>
-        </button>
-        <a class="icon-btn" href="#prospekte" aria-label="Prospekte">
+        </a>
+        <a class="icon-btn" href="#aktionen" aria-label="Aktionen im Überblick">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h6"/></svg>
         </a>
-        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Anmelden">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.500"/><path d="M5 20c.5-4 3.500-6 7-6s6.500 2 7 6"/></svg>
-        </button>
-        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Warenkorb">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.500l2 11h10l2-8H7"/><circle cx="9" cy="19.500" r="1.400"/><circle cx="17" cy="19.500" r="1.400"/></svg>
-        </button>
       </div>
     </div>
   </header>
@@ -63,12 +58,11 @@
   <nav class="catnav" aria-label="Kategorien">
     <ul class="catnav__list">
       <li><a href="#angebote">Angebote</a></li>
-      <li><a href="#" data-dummy>Frische &amp; Genuss</a></li>
-      <li><a href="#" data-dummy>Küche &amp; Haushalt</a></li>
-      <li><a href="#" data-dummy>Werkstatt &amp; Auto</a></li>
-      <li><a href="#" data-dummy>Freizeit &amp; Wellness</a></li>
-      <li><a href="#" data-dummy>Baby &amp; Mode</a></li>
-      <li><a href="#prospekte">Prospekte</a></li>
+      <li><a href="#kat-frische">Frische &amp; Genuss</a></li>
+      <li><a href="#kat-kueche">Küche &amp; Haushalt</a></li>
+      <li><a href="#kat-werkstatt">Werkstatt &amp; Freizeit</a></li>
+      <li><a href="#kat-baby">Baby &amp; Mode</a></li>
+      <li><a href="#aktionen">Aktionen</a></li>
     </ul>
   </nav>
 
@@ -100,8 +94,8 @@
             <span><strong>Faire Preise</strong>Jeden Tag, ohne Umwege</span>
           </li>
           <li>
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.500"/><circle cx="17.500" cy="18" r="1.500"/></svg>
-            <span><strong>Bequem online</strong>Lieferung nach Hause</span>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
+            <span><strong>Filialen vor Ort</strong>Adressen &amp; Öffnungszeiten</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.600 5.400 5.900.8-4.300 4.100 1 5.900L12 16.400 6.800 19.200l1-5.900L3.500 9.200l5.900-.8z"/></svg>
@@ -124,7 +118,7 @@
 
         <ul class="products products--deals">
           <li>
-            <article class="card">
+            <article class="card" id="produkt-espresso">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_espresso_machine.webp" width="358" height="360"
@@ -139,13 +133,12 @@
                 <div class="card__foot">
                   <span class="price">79,99<small>&nbsp;€*</small></span>
                   <span class="price-old">statt 109,99&nbsp;€</span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-drill">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_drill.webp" width="360" height="360"
@@ -160,13 +153,12 @@
                 <div class="card__foot">
                   <span class="price">49,99<small>&nbsp;€*</small></span>
                   <span class="price-old">statt 69,99&nbsp;€</span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-chair">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_camping_chair.webp" width="358" height="358"
@@ -181,13 +173,12 @@
                 <div class="card__foot">
                   <span class="price">14,99<small>&nbsp;€*</small></span>
                   <span class="price-old">statt 19,99&nbsp;€</span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-massage">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_massage_gun.webp" width="360" height="358"
@@ -202,7 +193,6 @@
                 <div class="card__foot">
                   <span class="price">34,99<small>&nbsp;€*</small></span>
                   <span class="price-old">statt 49,99&nbsp;€</span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
@@ -223,7 +213,7 @@
 
         <ul class="banners">
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#kategorien">
               <experimental-image class="xi xi--tall xi--care">
                 <img src="images/nordfeld/category_care.webp" width="505" height="287"
                      alt="Pflege, die zu dir passt. Kosmetik und Körperpflege für jeden Tag. Duschgel, Bodylotion und Gesichtscreme von NORDFELD. Zum Sortiment"
@@ -232,7 +222,7 @@
             </a>
           </li>
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#kategorien">
               <experimental-image class="xi xi--tall xi--cleaning">
                 <img src="images/nordfeld/category_cleaning.webp" width="505" height="287"
                      alt="Sauberkeit leicht gemacht. Haushalt und Reinigung zum Wohlfühlpreis. Allzweckreiniger, Vollwaschmittel und Putztücher. Jetzt entdecken"
@@ -241,7 +231,7 @@
             </a>
           </li>
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#produkt-boxes">
               <experimental-image class="xi xi--tall xi--living">
                 <img src="images/nordfeld/category_living.webp" width="508" height="287"
                      alt="Schöner wohnen. Wohnaccessoires zum Wohlfühlen. Sofa mit Kissen, Couchtisch, Kerze und Zimmerpflanze. Jetzt entdecken"
@@ -250,7 +240,7 @@
             </a>
           </li>
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#produkt-coffee">
               <experimental-image class="xi xi--short xi--breakfast">
                 <img src="images/nordfeld/category_breakfast.webp" width="508" height="234"
                      alt="Lecker in den Tag. Frühstücksvielfalt für die ganze Familie. Müsli mit Beeren, Marmelade, Orangensaft und Kaffee. Zum Sortiment"
@@ -259,7 +249,7 @@
             </a>
           </li>
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#produkt-fresh">
               <experimental-image class="xi xi--short xi--fresh">
                 <img src="images/nordfeld/category_fresh.webp" width="505" height="234"
                      alt="Frische Vielfalt. Obst und Gemüse aus besten Regionen. Holzkiste mit Tomaten, Möhren und Salat. Zur Auswahl"
@@ -268,7 +258,7 @@
             </a>
           </li>
           <li>
-            <a class="banner" href="#" data-dummy>
+            <a class="banner" href="#kategorien">
               <experimental-image class="xi xi--short xi--grill">
                 <img src="images/nordfeld/category_grill.webp" width="505" height="234"
                      alt="Alles für deinen Grillmoment. Fleisch, Fisch und mehr für unvergessliche Tage. Grillfleisch mit Rosmarin auf dem Rost. Jetzt entdecken"
@@ -292,7 +282,7 @@
 
         <ul class="products">
           <li>
-            <article class="card">
+            <article class="card" id="produkt-fresh">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_fresh_produce.webp" width="360" height="360"
@@ -305,13 +295,12 @@
                 <p class="card__desc">Frisch &amp; vielseitig · 1&nbsp;kg = 3,00&nbsp;€</p>
                 <div class="card__foot">
                   <span class="price">11,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-pasta">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_italian_pantry.webp" width="358" height="360"
@@ -324,13 +313,12 @@
                 <p class="card__desc">Italienische Klassiker</p>
                 <div class="card__foot">
                   <span class="price">3,49<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-coffee">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_coffee.webp" width="358" height="360"
@@ -343,13 +331,12 @@
                 <p class="card__desc">Kräftig &amp; aromatisch · 1&nbsp;kg = 9,99&nbsp;€</p>
                 <div class="card__foot">
                   <span class="price">9,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-pans">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_frying_pans.webp" width="358" height="360"
@@ -362,13 +349,12 @@
                 <p class="card__desc">Induktionsgeeignet</p>
                 <div class="card__foot">
                   <span class="price">24,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-boxes">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_storage_boxes.webp" width="360" height="360"
@@ -381,13 +367,12 @@
                 <p class="card__desc">Stapelbar &amp; transparent</p>
                 <div class="card__foot">
                   <span class="price">12,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-baby">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_baby_bodysuits.webp" width="360" height="360"
@@ -400,13 +385,12 @@
                 <p class="card__desc">Weich &amp; hautfreundlich</p>
                 <div class="card__foot">
                   <span class="price">7,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-jacket">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_outdoor_jacket.webp" width="360" height="358"
@@ -419,13 +403,12 @@
                 <p class="card__desc">Für jedes Herbstwetter</p>
                 <div class="card__foot">
                   <span class="price">29,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
           </li>
           <li>
-            <article class="card">
+            <article class="card" id="produkt-carcare">
               <div class="card__media">
                 <experimental-image class="xi xi--product">
                   <img src="images/nordfeld/product_car_care.webp" width="358" height="358"
@@ -438,7 +421,6 @@
                 <p class="card__desc">Reiniger, Tuch, Schwamm &amp; Bürste</p>
                 <div class="card__foot">
                   <span class="price">14,99<small>&nbsp;€*</small></span>
-                  <button type="button" class="btn btn--small btn--outline" data-open-dialog="dialog-info">In den Warenkorb</button>
                 </div>
               </div>
             </article>
@@ -450,33 +432,33 @@
     </section>
 
     <!-- H. PROSPEKTE + NORDFELD PLUS -->
-    <section class="section section--grey" id="prospekte" aria-labelledby="flyer-title">
+    <section class="section section--grey" id="aktionen" aria-labelledby="flyer-title">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <h2 class="h2" id="flyer-title">Unsere Aktionsprospekte</h2>
-            <p class="section-head__sub">Immer wissen, was in deiner Filiale gilt</p>
+            <h2 class="h2" id="flyer-title">Aktionen im Überblick</h2>
+            <p class="section-head__sub">Alles, was diese Woche zählt</p>
           </div>
         </div>
 
         <ul class="flyers">
           <li class="flyer reveal">
             <span class="flyer__tag">Diese Woche</span>
-            <h3 class="h3">Aktionsprospekt</h3>
+            <h3 class="h3">Deals des Tages</h3>
             <p class="flyer__date">21.09.2026 – 26.09.2026</p>
-            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+            <a class="more" href="#angebote">Zu den Deals</a>
           </li>
           <li class="flyer reveal">
-            <span class="flyer__tag">Nächste Woche</span>
-            <h3 class="h3">Aktionsprospekt</h3>
-            <p class="flyer__date">28.09.2026 – 03.10.2026</p>
-            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+            <span class="flyer__tag">Sortiment</span>
+            <h3 class="h3">Highlights</h3>
+            <p class="flyer__date">Kategorien im Überblick</p>
+            <a class="more" href="#sortiment">Zu den Highlights</a>
           </li>
           <li class="flyer reveal">
-            <span class="flyer__tag">Vorschau</span>
-            <h3 class="h3">Aktionsprospekt</h3>
-            <p class="flyer__date">05.10.2026 – 10.10.2026</p>
-            <a class="more" href="#" data-dummy>Prospekt ansehen</a>
+            <span class="flyer__tag">Beliebt</span>
+            <h3 class="h3">Bestseller</h3>
+            <p class="flyer__date">Das kommt am besten an</p>
+            <a class="more" href="#bestseller">Zu den Bestsellern</a>
           </li>
         </ul>
 
@@ -486,66 +468,142 @@
             <h3 class="plus__title">Mit Nordfeld Plus jede Woche sparen.</h3>
             <p class="plus__text">Persönliche Coupons, Vorteile und Punkte bei jedem Einkauf – kostenlos in der App.</p>
           </div>
-          <button type="button" class="btn btn--yellow" data-open-dialog="dialog-info">Jetzt anmelden</button>
+          <a class="btn btn--yellow" href="#angebote">Angebote ansehen</a>
         </div>
       </div>
     </section>
 
     <!-- I. BELIEBTE KATEGORIEN -->
-    <section class="section" aria-labelledby="cats-title">
+    <section class="section" id="kategorien" aria-labelledby="cats-title">
       <div class="container">
         <div class="section-head reveal">
           <h2 class="h2" id="cats-title">Unsere beliebtesten Kategorien</h2>
         </div>
 
         <div class="catlinks">
-          <div class="catlinks__col reveal">
+          <div class="catlinks__col reveal" id="kat-frische">
             <h3 class="h4">Frische &amp; Genuss</h3>
             <ul>
-              <li><a href="#" data-dummy>Obst &amp; Gemüse</a></li>
-              <li><a href="#" data-dummy>Kaffee &amp; Tee</a></li>
-              <li><a href="#" data-dummy>Pasta &amp; Saucen</a></li>
-              <li><a href="#" data-dummy>Frühstück</a></li>
-              <li><a href="#" data-dummy>Grillen</a></li>
+              <li><a href="#produkt-fresh">Obst &amp; Gemüse</a></li>
+              <li><a href="#produkt-coffee">Kaffee</a></li>
+              <li><a href="#produkt-pasta">Pasta &amp; Saucen</a></li>
             </ul>
           </div>
-          <div class="catlinks__col reveal">
+          <div class="catlinks__col reveal" id="kat-kueche">
             <h3 class="h4">Küche &amp; Haushalt</h3>
             <ul>
-              <li><a href="#" data-dummy>Kaffeemaschinen</a></li>
-              <li><a href="#" data-dummy>Pfannen &amp; Töpfe</a></li>
-              <li><a href="#" data-dummy>Aufbewahrung</a></li>
-              <li><a href="#" data-dummy>Reinigung</a></li>
-              <li><a href="#" data-dummy>Wohnaccessoires</a></li>
+              <li><a href="#produkt-espresso">Kaffeemaschinen</a></li>
+              <li><a href="#produkt-pans">Pfannen &amp; Töpfe</a></li>
+              <li><a href="#produkt-boxes">Aufbewahrung</a></li>
             </ul>
           </div>
-          <div class="catlinks__col reveal">
+          <div class="catlinks__col reveal" id="kat-werkstatt">
             <h3 class="h4">Werkstatt &amp; Freizeit</h3>
             <ul>
-              <li><a href="#" data-dummy>Akku-Bohrschrauber</a></li>
-              <li><a href="#" data-dummy>Autopflege</a></li>
-              <li><a href="#" data-dummy>Camping</a></li>
-              <li><a href="#" data-dummy>Massage &amp; Wellness</a></li>
-              <li><a href="#" data-dummy>Outdoorjacken</a></li>
+              <li><a href="#produkt-drill">Akku-Bohrschrauber</a></li>
+              <li><a href="#produkt-carcare">Autopflege</a></li>
+              <li><a href="#produkt-chair">Camping</a></li>
+              <li><a href="#produkt-massage">Massage &amp; Wellness</a></li>
             </ul>
           </div>
-          <div class="catlinks__col reveal">
-            <h3 class="h4">Baby &amp; Pflege</h3>
+          <div class="catlinks__col reveal" id="kat-baby">
+            <h3 class="h4">Baby &amp; Mode</h3>
             <ul>
-              <li><a href="#" data-dummy>Babybodys</a></li>
-              <li><a href="#" data-dummy>Kinderkleidung</a></li>
-              <li><a href="#" data-dummy>Körperpflege</a></li>
-              <li><a href="#" data-dummy>Gesichtspflege</a></li>
-              <li><a href="#" data-dummy>Duschen &amp; Baden</a></li>
+              <li><a href="#produkt-baby">Babybodys</a></li>
+              <li><a href="#produkt-jacket">Outdoorjacken</a></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
+    <!-- INFO-BEREICH (Service, Fragen, Unternehmen, Rechtliches) -->
+    <div class="info-area">
+    <section class="info-block" id="service" aria-labelledby="service-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
+        <div class="info-block__body">
+          <p>Du hast Fragen zu Angeboten, Produkten oder deiner Filiale? Unser Kundenservice hilft dir gern weiter.</p>
+          <dl class="info-list">
+            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
+            <div><dt>E-Mail</dt><dd>service@nordfeld.example</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Samstag 8–20 Uhr</dd></div>
+            <div><dt>Filialen</dt><dd>NORDFELD-Filialen findest du in ganz Deutschland. Öffnungszeiten: Montag bis Samstag 7–22 Uhr. Adressen und Sortiment können je Filiale abweichen.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="faq" aria-labelledby="faq-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="faq-title">Häufige Fragen</h2>
+        <div class="info-block__body">
+          <div class="faq">
+            <details>
+              <summary>Bis wann gelten die Angebote?</summary>
+              <p>Die Deals des Tages gelten vom 21.09. bis 26.09.2026, solange der Vorrat reicht.</p>
+            </details>
+            <details>
+              <summary>Was bedeutet der Streichpreis?</summary>
+              <p>Der Streichpreis ist der bisherige NORDFELD-Preis des Artikels. Alle Preise verstehen sich in Euro inklusive Mehrwertsteuer.</p>
+            </details>
+            <details>
+              <summary>Sind alle Artikel in jeder Filiale erhältlich?</summary>
+              <p>Das Sortiment kann je Filiale abweichen. Aktionsartikel sind nur solange der Vorrat reicht verfügbar.</p>
+            </details>
+            <details>
+              <summary>Wie funktioniert Nordfeld Plus?</summary>
+              <p>Mit Nordfeld Plus sammelst du in der App Punkte und erhältst persönliche Coupons für deinen nächsten Einkauf.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="ueber-uns" aria-labelledby="ueber-uns-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="ueber-uns-title">Über NORDFELD</h2>
+        <div class="info-block__body">
+          <p>NORDFELD steht für Gutes für jeden Tag: frische Lebensmittel, praktische Haushaltsartikel und Aktionsartikel zu fairen Preisen. Unser Anspruch ist einfach: Qualität, die man sich leisten kann.</p>
+          <p>Unser Motto „Gutes liegt nah“ prägt unser Sortiment ebenso wie unsere Filialen vor Ort.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="nachhaltigkeit" aria-labelledby="nachhaltigkeit-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="nachhaltigkeit-title">Nachhaltigkeit</h2>
+        <div class="info-block__body">
+          <p>Wir prüfen unser Sortiment und unsere Verpackungen fortlaufend darauf, Material zu sparen und Lebensmittelabfälle zu vermeiden.</p>
+          <p>Konkrete Ziele und Kennzahlen veröffentlichen wir, sobald sie belastbar vorliegen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="datenschutz" aria-labelledby="datenschutz-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="datenschutz-title">Datenschutz</h2>
+        <div class="info-block__body">
+          <p>Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Dienste. Wir speichern keine personenbezogenen Daten von dir.</p>
+          <p>Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten (zum Beispiel die IP-Adresse), um die Seite auszuliefern. Diese Daten dienen ausschließlich dem Betrieb der Seite.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="impressum" aria-labelledby="impressum-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="impressum-title">Impressum</h2>
+        <div class="info-block__body">
+          <p>Angaben gemäß § 5 DDG:<br>NORDFELD Handels GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
+          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
+          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+        </div>
+      </div>
+    </section>
+    </div>
   </main>
 
   <!-- J. FOOTER -->
-  <footer class="site-footer" id="unternehmen">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -562,40 +620,34 @@
         <nav class="footer__col" aria-labelledby="f-service">
           <h2 class="footer__title" id="f-service">Kundenservice</h2>
           <ul>
-            <li><a href="#" data-dummy>Hilfe &amp; Kontakt</a></li>
-            <li><a href="#" data-dummy>Versand &amp; Lieferung</a></li>
-            <li><a href="#" data-dummy>Rückgabe &amp; Erstattung</a></li>
-            <li><a href="#" data-dummy>Häufige Fragen</a></li>
+            <li><a href="#service">Hilfe &amp; Kontakt</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-labelledby="f-filiale">
           <h2 class="footer__title" id="f-filiale">Filiale &amp; Angebote</h2>
           <ul>
-            <li><a href="#" data-dummy>Filialfinder</a></li>
-            <li><a href="#prospekte">Aktionsprospekte</a></li>
+            <li><a href="#service">Filialen &amp; Öffnungszeiten</a></li>
+            <li><a href="#aktionen">Aktionen</a></li>
             <li><a href="#plus">Nordfeld Plus</a></li>
-            <li><a href="#" data-dummy>Gutscheine</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-labelledby="f-unternehmen">
           <h2 class="footer__title" id="f-unternehmen">Unternehmen</h2>
           <ul>
-            <li><a href="#" data-dummy>Über NORDFELD</a></li>
-            <li><a href="#" data-dummy>Nachhaltigkeit</a></li>
-            <li><a href="#" data-dummy>Karriere</a></li>
-            <li><a href="#" data-dummy>Presse</a></li>
+            <li><a href="#ueber-uns">Über NORDFELD</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-labelledby="f-recht">
           <h2 class="footer__title" id="f-recht">Rechtliches</h2>
           <ul>
-            <li><a href="#" data-dummy>Datenschutz</a></li>
-            <li><a href="#" data-dummy>Impressum</a></li>
-            <li><a href="#" data-dummy>AGB</a></li>
-            <li><a href="#" data-dummy>Kontakt</a></li>
+            <li><a href="#datenschutz">Datenschutz</a></li>
+            <li><a href="#impressum">Impressum</a></li>
+            <li><a href="#service">Kontakt</a></li>
           </ul>
         </nav>
       </div>
@@ -607,14 +659,6 @@
     </div>
   </footer>
 
-  <!-- Dummy-Dialog (intern, keine externen Seiten) -->
-  <dialog class="dialog" id="dialog-info" aria-labelledby="dialog-info-title">
-    <form method="dialog" class="dialog__body">
-      <h2 class="h3" id="dialog-info-title">NORDFELD</h2>
-      <p>Dieser Bereich wird gerade vorbereitet. Bis dahin kannst du die aktuellen Angebote auf dieser Seite entdecken.</p>
-      <button class="btn btn--primary" value="close">Schließen</button>
-    </form>
-  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>

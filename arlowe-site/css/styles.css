@@ -163,8 +163,8 @@ button, input { font-family: inherit; }
   margin-inline: auto;
   padding-inline: var(--gutter);
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "logo nav actions";
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "logo nav";
   align-items: center;
   gap: 32px;
 }
@@ -242,8 +242,8 @@ button, input { font-family: inherit; }
 
 @media (max-width: 900px) {
   .site-header__inner {
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "menu logo actions";
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "menu logo";
     gap: 8px;
   }
   .menu-btn { display: inline-grid; }
@@ -279,8 +279,6 @@ button, input { font-family: inherit; }
   .site-header__inner { padding-inline: 8px; gap: 4px; }
   .logo { font-size: 18px; letter-spacing: 0.16em; }
   .icon-btn { width: 40px; height: 40px; }
-  /* Der Wunschlisten-Button steht auch neben dem Warenkorb-Button */
-  .site-header__actions .icon-btn[aria-label="Wunschliste"] { display: none; }
 }
 
 /* --------------------------------------------------------------------------
@@ -441,13 +439,13 @@ button, input { font-family: inherit; }
 
 .swatches { display: flex; gap: 10px; margin-top: 10px; }
 .swatch {
+  display: block;
   width: 28px;
   height: 28px;
   padding: 0;
   background: var(--petrol);
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  cursor: pointer;
 }
 .swatch.is-selected { outline: 1px solid var(--ink); outline-offset: 3px; }
 
@@ -590,3 +588,74 @@ button, input { font-family: inherit; }
   html { scroll-behavior: auto; }
   .btn, .size, .site-nav, .site-nav a::after { transition: none; }
 }
+
+/* --------------------------------------------------------------------------
+   Info-Bereich (Service, Fragen, Unternehmen, Rechtliches)
+   -------------------------------------------------------------------------- */
+.info-area { background: var(--soft); }
+.info-block { padding-block: clamp(44px, 6vw, 80px); border-top: 1px solid var(--line); }
+.info-block:first-child { border-top: 0; }
+.info-block__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 24px clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.info-block__title {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.info-block__body { max-width: 44em; color: var(--ink); font-size: 14px; line-height: 1.65; }
+.info-block__body p + p { margin-top: 12px; }
+.info-block__body a { color: inherit; text-underline-offset: 3px; }
+
+.info-list { margin: 20px 0 0; padding: 0; }
+.info-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 11em) minmax(0, 1fr);
+  gap: 4px 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.info-list > div:last-child { border-bottom: 1px solid var(--line); }
+.info-list dt { font-weight: 600; color: var(--ink); }
+.info-list dd { margin: 0; }
+
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  position: relative;
+  display: block;
+  padding: 16px 32px 16px 0;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding: 0 32px 18px 0; }
+
+@media (max-width: 900px) {
+  .info-block__grid { grid-template-columns: 1fr; }
+  .info-list > div { grid-template-columns: 1fr; }
+}
+
+.sizes-text { margin-top: 8px; font-size: 13px; color: var(--ink); }
+.info-block { scroll-margin-top: calc(var(--header-h) + 8px); }
+.accordion details[id] { scroll-margin-top: calc(var(--header-h) + 16px); }

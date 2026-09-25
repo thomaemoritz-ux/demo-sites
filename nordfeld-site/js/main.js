@@ -14,29 +14,52 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* Dialoge (Platzhalter für Warenkorb, Anmeldung, Filialwahl) */
-  document.addEventListener("click", function (event) {
-    var opener = event.target.closest("[data-open-dialog]");
-    if (opener) {
-      var dialog = document.getElementById(opener.getAttribute("data-open-dialog"));
-      if (dialog && typeof dialog.showModal === "function") dialog.showModal();
+  /* Suche: springt zum passenden Produkt (findet Titel und Beschreibung) */
+  var form = document.querySelector(".search");
+  var input = document.getElementById("search-input");
+  var msg = document.getElementById("search-msg");
+  var msgTimer = null;
+  var foundTimer = null;
+
+  function normalize(text) {
+    return text.toLowerCase().replace(/\s+/g, " ").trim();
+  }
+
+  function showMessage(text) {
+    msg.textContent = text;
+    msg.hidden = false;
+    window.clearTimeout(msgTimer);
+    msgTimer = window.setTimeout(function () { msg.hidden = true; }, 4000);
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.querySelectorAll(".card.is-found").forEach(function (c) { c.classList.remove("is-found"); });
+    var query = normalize(input.value);
+    if (!query) return;
+
+    var words = query.split(" ");
+    var hit = null;
+    document.querySelectorAll(".card").forEach(function (card) {
+      if (hit) return;
+      var text = normalize(card.textContent);
+      if (words.every(function (w) { return text.indexOf(w) !== -1; })) hit = card;
+    });
+
+    if (!hit) {
+      showMessage("Kein Treffer für „" + input.value.trim() + "“. Versuche es mit einem anderen Begriff.");
       return;
     }
 
-    // Klick auf den Backdrop schließt den Dialog
-    if (event.target instanceof HTMLDialogElement && event.target.open) {
-      event.target.close();
-    }
-
-    // Platzhalter-Links: nichts öffnen, nicht springen
-    var dummy = event.target.closest("a[data-dummy]");
-    if (dummy) event.preventDefault();
+    msg.hidden = true;
+    hit.classList.add("is-found");
+    hit.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.blur();
+    window.clearTimeout(foundTimer);
+    foundTimer = window.setTimeout(function () { hit.classList.remove("is-found"); }, 3500);
   });
 
-  /* Suche: in dieser Seite ohne Funktion, aber ohne Seitenwechsel */
-  document.addEventListener("submit", function (event) {
-    if (event.target.closest(".search")) event.preventDefault();
-  });
+  input.addEventListener("input", function () { msg.hidden = true; });
 
   /* Reveal-Effekt (nur Überschriften/Textblöcke, nie Bilder oder Labels) */
   var items = document.querySelectorAll(".reveal");

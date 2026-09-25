@@ -320,8 +320,6 @@ section[id], footer[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
   .brand { gap: 8px; }
   .brand__name { font-size: 20px; }
   .icon-btn { min-width: 40px; height: 40px; }
-  /* Prospekte bleiben über die Kategorieleiste erreichbar */
-  .site-header__actions a.icon-btn { display: none; }
 }
 
 /* --------------------------------------------------------------------------
@@ -697,3 +695,91 @@ experimental-image {
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .card, .icon-btn, .site-header, .catnav a { transition: none; }
 }
+
+/* --------------------------------------------------------------------------
+   Info-Bereich (Service, Fragen, Unternehmen, Rechtliches)
+   -------------------------------------------------------------------------- */
+.info-area { background: var(--white); }
+.info-block { padding-block: clamp(44px, 6vw, 80px); border-top: 1px solid var(--line); }
+.info-block:first-child { border-top: 0; }
+.info-block__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 24px clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.info-block__title {
+  font-family: var(--font);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--navy);
+}
+.info-block__body { max-width: 44em; color: var(--text); font-size: 16px; line-height: 1.65; }
+.info-block__body p + p { margin-top: 12px; }
+.info-block__body a { color: inherit; text-underline-offset: 3px; }
+
+.info-list { margin: 20px 0 0; padding: 0; }
+.info-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 11em) minmax(0, 1fr);
+  gap: 4px 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.info-list > div:last-child { border-bottom: 1px solid var(--line); }
+.info-list dt { font-weight: 600; color: var(--navy); }
+.info-list dd { margin: 0; }
+
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  position: relative;
+  display: block;
+  padding: 16px 32px 16px 0;
+  font-weight: 600;
+  color: var(--navy);
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding: 0 32px 18px 0; }
+
+@media (max-width: 900px) {
+  .info-block__grid { grid-template-columns: 1fr; }
+  .info-list > div { grid-template-columns: 1fr; }
+}
+
+/* Suche: Hinweis bei "kein Treffer" */
+.search__msg {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 12px;
+  right: 12px;
+  z-index: 60;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(1, 42, 77, 0.14);
+}
+.search__msg[hidden] { display: none; }
+
+/* Sprungziele: Produktkarten und Kategorien */
+.card[id], .catlinks__col[id] { scroll-margin-top: calc(var(--header-h) + 24px); }
+.card:target, .card.is-found { box-shadow: 0 0 0 3px var(--yellow), 0 8px 24px rgba(1, 42, 77, 0.14); }

@@ -29,30 +29,13 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
         <ul>
-          <li><a href="#" data-dummy>Neu</a></li>
-          <li><a href="#" data-dummy>Damen</a></li>
-          <li><a href="#" data-dummy>Herren</a></li>
-          <li><a href="#" data-dummy class="is-current" aria-current="true">Teens</a></li>
-          <li><a href="#" data-dummy>Kinder</a></li>
-          <li><a href="#" data-dummy>Sale</a></li>
+          <li><a href="#top">Produkt</a></li>
+          <li><a href="#details-care">Details &amp; Pflege</a></li>
+          <li><a href="#details-measures">Maße</a></li>
+          <li><a href="#service">Service</a></li>
         </ul>
       </nav>
 
-      <div class="site-header__actions">
-        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Suchen">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" aria-hidden="true"><circle cx="10.500" cy="10.500" r="6.500"/><path d="m15.500 15.500 5 5"/></svg>
-        </button>
-        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Anmelden">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.500"/><path d="M5 20c.5-4 3.500-6 7-6s6.500 2 7 6"/></svg>
-        </button>
-        <button type="button" class="icon-btn" data-open-dialog="dialog-info" aria-label="Wunschliste">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.500-4.500-7.500-10A4.500 4.500 0 0 1 12 7.200 4.500 4.500 0 0 1 19.500 10c0 5.500-7.500 10-7.500 10z"/></svg>
-        </button>
-        <button type="button" class="icon-btn icon-btn--bag" data-open-dialog="dialog-info" aria-label="Warenkorb, 0 Artikel">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.500a3 3 0 0 1 6 0V8"/></svg>
-          <span class="bag-count" aria-hidden="true">0</span>
-        </button>
-      </div>
     </div>
   </header>
 
@@ -61,9 +44,9 @@
 
       <nav class="crumbs" aria-label="Brotkrumen">
         <ol>
-          <li><a href="#" data-dummy>Teens</a></li>
-          <li><a href="#" data-dummy>Mädchen</a></li>
-          <li><a href="#" data-dummy>Sweatshirts</a></li>
+          <li>Teens</li>
+          <li>Mädchen</li>
+          <li>Sweatshirts</li>
         </ol>
       </nav>
 
@@ -123,41 +106,32 @@
           <div class="field">
             <p class="field__label">Farbe: <strong>Petrolblau</strong></p>
             <ul class="swatches">
-              <li><button type="button" class="swatch is-selected" aria-pressed="true" aria-label="Petrolblau"></button></li>
+              <li><span class="swatch is-selected" role="img" aria-label="Farbe Petrolblau"></span></li>
             </ul>
           </div>
 
           <div class="field">
             <div class="field__row">
-              <p class="field__label" id="size-label">Größe</p>
-              <button type="button" class="linklike" data-open-details="details-measures">Größentabelle</button>
+              <p class="field__label">Größen</p>
+              <a class="linklike" href="#details-measures">Größentabelle</a>
             </div>
-            <ul class="sizes" role="group" aria-labelledby="size-label">
-              <li><button type="button" class="size" aria-pressed="false">XS</button></li>
-              <li><button type="button" class="size" aria-pressed="false">S</button></li>
-              <li><button type="button" class="size" aria-pressed="false">M</button></li>
-              <li><button type="button" class="size" aria-pressed="false">L</button></li>
-              <li><button type="button" class="size" aria-pressed="false">XL</button></li>
-            </ul>
+            <p class="sizes-text">Erhältlich in XS, S, M, L und XL.</p>
           </div>
 
           <div class="buy">
-            <button type="button" class="btn btn--primary" data-open-dialog="dialog-info">In den Warenkorb</button>
-            <button type="button" class="btn btn--outline btn--icon" data-open-dialog="dialog-info" aria-label="Auf die Wunschliste">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.500-4.500-7.500-10A4.500 4.500 0 0 1 12 7.200 4.500 4.500 0 0 1 19.500 10c0 5.500-7.500 10-7.500 10z"/></svg>
-            </button>
+            <a class="btn btn--primary" href="#details-store">In der Filiale ansehen</a>
           </div>
 
           <p class="ship">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h12v9H3z"/><path d="M15 10h3.500l2.500 3v3h-6"/><circle cx="7.500" cy="17.500" r="1.600"/><circle cx="17.500" cy="17.500" r="1.600"/></svg>
-            Kostenloser Versand in die Filiale
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
+            In ausgewählten Filialen erhältlich
           </p>
 
           <!-- Beschreibung -->
           <p class="desc">Weiches Sweatshirt aus 100&nbsp;% Baumwolle. Gerader Schnitt mit Rundhalsausschnitt und langen Ärmeln. Kleiner Grafikprint auf der Brust, großer Print auf dem Rücken.</p>
 
           <div class="accordion">
-            <details>
+            <details id="details-care">
               <summary>Details, Zusammensetzung und Pflege</summary>
               <div class="accordion__body">
                 <p><strong>Zusammensetzung:</strong> 100&nbsp;% Baumwolle.</p>
@@ -189,11 +163,11 @@
               </div>
             </details>
 
-            <details>
+            <details id="details-store">
               <summary>Verfügbarkeit in der Filiale</summary>
               <div class="accordion__body">
-                <p>Wähle eine Filiale, um die Verfügbarkeit dieses Artikels zu sehen.</p>
-                <button type="button" class="btn btn--outline btn--small" data-open-dialog="dialog-info">Filiale wählen</button>
+                <p>Dieser Artikel ist in ausgewählten ARLOWE-Filialen erhältlich. Adressen und Öffnungszeiten findest du unter Service &amp; Kontakt.</p>
+                <a class="btn btn--outline btn--small" href="#service">Filialen &amp; Service</a>
               </div>
             </details>
           </div>
@@ -201,20 +175,90 @@
       </div>
     </div>
 
-    <!-- D. NEWSLETTER -->
-    <section class="newsletter" aria-labelledby="news-title">
-      <div class="container newsletter__inner">
-        <div>
-          <h2 class="newsletter__title" id="news-title">Exklusive Angebote, Sales und Neuigkeiten</h2>
-          <p class="newsletter__text">Melde dich für den Newsletter an und verpasse keine Aktion.</p>
+    <!-- INFO-BEREICH (Service, Fragen, Unternehmen, Rechtliches) -->
+    <div class="info-area">
+    <section class="info-block" id="service" aria-labelledby="service-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
+        <div class="info-block__body">
+          <p>Du hast Fragen zu diesem Artikel, zur Größe oder zur Pflege? Unser Kundenservice hilft dir gern weiter.</p>
+          <dl class="info-list">
+            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
+            <div><dt>E-Mail</dt><dd>service@arlowe.example</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Samstag 9–18 Uhr</dd></div>
+            <div><dt>Filialen</dt><dd>ARLOWE-Filialen findest du in ausgewählten Innenstädten. Öffnungszeiten: Montag bis Samstag 10–20 Uhr. Die Verfügbarkeit einzelner Artikel kann je Filiale abweichen.</dd></div>
+          </dl>
         </div>
-        <form class="newsletter__form">
-          <label class="visually-hidden" for="news-email">E-Mail-Adresse</label>
-          <input class="input" id="news-email" type="email" placeholder="E-Mail-Adresse" autocomplete="off">
-          <button type="submit" class="btn btn--primary">Anmelden</button>
-        </form>
       </div>
     </section>
+
+    <section class="info-block" id="faq" aria-labelledby="faq-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="faq-title">Häufige Fragen</h2>
+        <div class="info-block__body">
+          <div class="faq">
+            <details>
+              <summary>Wie fällt das Sweatshirt aus?</summary>
+              <p>Das Sweatshirt hat einen geraden Schnitt. Alle Maße pro Größe findest du im Bereich Maße. Bei Unsicherheit hilft dir der Kundenservice weiter.</p>
+            </details>
+            <details>
+              <summary>Wie pflege ich den Print?</summary>
+              <p>Am besten auf links bei 30 °C waschen, nicht bleichen und nicht im Trockner trocknen. Den Print beim Bügeln aussparen.</p>
+            </details>
+            <details>
+              <summary>Aus welchem Material besteht das Sweatshirt?</summary>
+              <p>Das Sweatshirt besteht zu 100 % aus Baumwolle.</p>
+            </details>
+            <details>
+              <summary>Wo ist der Artikel erhältlich?</summary>
+              <p>In ausgewählten ARLOWE-Filialen. Die Verfügbarkeit kann je Filiale abweichen, Details stehen unter Service &amp; Kontakt.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="ueber-uns" aria-labelledby="ueber-uns-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="ueber-uns-title">Über ARLOWE</h2>
+        <div class="info-block__body">
+          <p>ARLOWE steht für zeitlose Basics mit eigener Handschrift: weiche Materialien, klare Schnitte und Prints, die Persönlichkeit zeigen, ohne laut zu sein.</p>
+          <p>Die Teens-Kollektion richtet sich an alle, die Kleidung suchen, die bequem ist und sich leicht kombinieren lässt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="nachhaltigkeit" aria-labelledby="nachhaltigkeit-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="nachhaltigkeit-title">Nachhaltigkeit</h2>
+        <div class="info-block__body">
+          <p>Wir prüfen Materialien, Lieferketten und Verpackungen fortlaufend darauf, Ressourcen zu schonen. Baumwolle ist ein natürlicher Rohstoff, der bei guter Pflege lange getragen werden kann.</p>
+          <p>Konkrete Ziele und Kennzahlen veröffentlichen wir, sobald sie belastbar vorliegen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="datenschutz" aria-labelledby="datenschutz-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="datenschutz-title">Datenschutz</h2>
+        <div class="info-block__body">
+          <p>Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Dienste. Wir speichern keine personenbezogenen Daten von dir.</p>
+          <p>Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten (zum Beispiel die IP-Adresse), um die Seite auszuliefern. Diese Daten dienen ausschließlich dem Betrieb der Seite.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="impressum" aria-labelledby="impressum-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="impressum-title">Impressum</h2>
+        <div class="info-block__body">
+          <p>Angaben gemäß § 5 DDG:<br>ARLOWE Fashion GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
+          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
+          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+        </div>
+      </div>
+    </section>
+    </div>
   </main>
 
   <!-- E. FOOTER -->
@@ -224,37 +268,32 @@
         <nav class="footer__col" aria-labelledby="f-hilfe">
           <h2 class="footer__title" id="f-hilfe">Hilfe</h2>
           <ul>
-            <li><a href="#" data-dummy>Kundenservice</a></li>
-            <li><a href="#" data-dummy>Versand &amp; Lieferung</a></li>
-            <li><a href="#" data-dummy>Rückgabe &amp; Erstattung</a></li>
-            <li><a href="#" data-dummy>Größenberatung</a></li>
+            <li><a href="#service">Kundenservice</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
+            <li><a href="#details-measures">Größenberatung</a></li>
           </ul>
         </nav>
-        <nav class="footer__col" aria-labelledby="f-shop">
-          <h2 class="footer__title" id="f-shop">Shop</h2>
+        <nav class="footer__col" aria-labelledby="f-produkt">
+          <h2 class="footer__title" id="f-produkt">Produkt</h2>
           <ul>
-            <li><a href="#" data-dummy>Filialen</a></li>
-            <li><a href="#" data-dummy>Geschenkkarten</a></li>
-            <li><a href="#" data-dummy>Wunschliste</a></li>
-            <li><a href="#" data-dummy>Sale</a></li>
+            <li><a href="#details-care">Details &amp; Pflege</a></li>
+            <li><a href="#details-measures">Maße</a></li>
+            <li><a href="#details-store">Filialverfügbarkeit</a></li>
           </ul>
         </nav>
         <nav class="footer__col" aria-labelledby="f-firma">
           <h2 class="footer__title" id="f-firma">Unternehmen</h2>
           <ul>
-            <li><a href="#" data-dummy>Über ARLOWE</a></li>
-            <li><a href="#" data-dummy>Nachhaltigkeit</a></li>
-            <li><a href="#" data-dummy>Karriere</a></li>
-            <li><a href="#" data-dummy>Presse</a></li>
+            <li><a href="#ueber-uns">Über ARLOWE</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
           </ul>
         </nav>
         <nav class="footer__col" aria-labelledby="f-recht">
           <h2 class="footer__title" id="f-recht">Rechtliches</h2>
           <ul>
-            <li><a href="#" data-dummy>Datenschutz</a></li>
-            <li><a href="#" data-dummy>Impressum</a></li>
-            <li><a href="#" data-dummy>AGB</a></li>
-            <li><a href="#" data-dummy>Kontakt</a></li>
+            <li><a href="#datenschutz">Datenschutz</a></li>
+            <li><a href="#impressum">Impressum</a></li>
+            <li><a href="#service">Kontakt</a></li>
           </ul>
         </nav>
       </div>
@@ -266,14 +305,6 @@
     </div>
   </footer>
 
-  <!-- Dummy-Dialog (intern, keine externen Seiten) -->
-  <dialog class="dialog" id="dialog-info" aria-labelledby="dialog-info-title">
-    <form method="dialog" class="dialog__body">
-      <h2 class="dialog__title" id="dialog-info-title">ARLOWE</h2>
-      <p>Dieser Bereich wird gerade vorbereitet. Bis dahin kannst du den Artikel auf dieser Seite in Ruhe ansehen.</p>
-      <button class="btn btn--primary" value="close">Schließen</button>
-    </form>
-  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>

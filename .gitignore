@@ -16,3 +16,8 @@
 
 # Lokale Link-Notiz (enthält die Zuordnung A/B)
 /LINKS.md
+
+# Weitere Dateien im Workspace, die nicht zu den Websites gehören
+/*.xlsx
+/*.docx
+/*.pdf

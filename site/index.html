@@ -32,12 +32,12 @@
           <li><a href="#design">Design</a></li>
           <li><a href="#technologie">Technologie</a></li>
           <li><a href="#laden">Laden</a></li>
-          <li><a href="#unternehmen">Unternehmen</a></li>
+          <li><a href="#ueber-uns">Unternehmen</a></li>
         </ul>
       </nav>
 
       <div class="site-header__actions">
-        <button type="button" class="btn btn--small btn--primary" data-open-dialog="dialog-konfigurator">Konfigurieren</button>
+        <a class="btn btn--small btn--primary" href="#daten">Technische Daten</a>
         <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
           <span class="nav-toggle__bar"></span>
           <span class="nav-toggle__bar"></span>
@@ -56,7 +56,7 @@
         <p class="hero__sub">Elektrische Freiheit. Neu definiert.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#v7">V7 entdecken</a>
-          <button type="button" class="btn btn--outline" data-open-dialog="dialog-konfigurator">Konfigurieren</button>
+          <a class="btn btn--outline" href="#daten">Technische Daten</a>
         </div>
       </div>
 
@@ -263,21 +263,157 @@
       </div>
     </section>
 
+    <!-- TECHNISCHE DATEN -->
+    <section class="section section--paper" id="daten" aria-labelledby="daten-title">
+      <div class="container">
+        <div class="split-head reveal">
+          <div>
+            <p class="eyebrow">Technische Daten</p>
+            <h2 class="h2" id="daten-title">Alles Wichtige auf einen Blick.</h2>
+          </div>
+          <p class="lead">Die wichtigsten Eckdaten des VELORA V7. Die Angaben sind Richtwerte und können je nach Ausstattung, Fahrstil und Umgebungstemperatur abweichen.</p>
+        </div>
+
+        <div class="specs">
+          <div class="specs__group reveal">
+            <h3 class="specs__title">Antrieb &amp; Leistung</h3>
+            <dl>
+              <div class="specs__row"><dt>Antrieb</dt><dd>Elektrischer Allradantrieb</dd></div>
+              <div class="specs__row"><dt>Reichweite</dt><dd>bis zu 610 km</dd></div>
+              <div class="specs__row"><dt>0–100 km/h</dt><dd>4,8 s</dd></div>
+              <div class="specs__row"><dt>Höchstgeschwindigkeit</dt><dd>210 km/h (abgeregelt)</dd></div>
+            </dl>
+          </div>
+          <div class="specs__group reveal">
+            <h3 class="specs__title">Batterie &amp; Laden</h3>
+            <dl>
+              <div class="specs__row"><dt>Bordnetz</dt><dd>800-Volt-Architektur</dd></div>
+              <div class="specs__row"><dt>Schnellladen (DC)</dt><dd>10–80 % in 28 Min.</dd></div>
+              <div class="specs__row"><dt>Laden zu Hause</dt><dd>AC über Wallbox</dd></div>
+              <div class="specs__row"><dt>Routenplanung</dt><dd>mit Ladestopps</dd></div>
+            </dl>
+          </div>
+          <div class="specs__group reveal">
+            <h3 class="specs__title">Maße &amp; Platz</h3>
+            <dl>
+              <div class="specs__row"><dt>Länge / Breite / Höhe</dt><dd>4.850 / 1.960 / 1.690 mm</dd></div>
+              <div class="specs__row"><dt>Radstand</dt><dd>2.960 mm</dd></div>
+              <div class="specs__row"><dt>Kofferraum</dt><dd>560 l</dd></div>
+              <div class="specs__row"><dt>Sitzplätze</dt><dd>5</dd></div>
+            </dl>
+          </div>
+          <div class="specs__group reveal">
+            <h3 class="specs__title">Ausstattung</h3>
+            <dl>
+              <div class="specs__row"><dt>Cockpit</dt><dd>Digitales Cockpit</dd></div>
+              <div class="specs__row"><dt>Dach</dt><dd>Panorama-Glasdach</dd></div>
+              <div class="specs__row"><dt>Assistenz</dt><dd>Spur-, Abstands- und Parkassistent</dd></div>
+              <div class="specs__row"><dt>Materialien</dt><dd>Hochwertige Oberflächen</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- J. FINAL CTA -->
     <section class="section section--paper cta" id="probefahrt" aria-labelledby="cta-title">
       <div class="container cta__inner reveal">
         <h2 class="h2 cta__title" id="cta-title">Der VELORA V7.</h2>
         <p class="cta__sub">Elektrisch. Klar. Für morgen gemacht.</p>
         <div class="cta__actions">
-          <button type="button" class="btn btn--primary" data-open-dialog="dialog-konfigurator">Konfigurieren</button>
-          <button type="button" class="btn btn--outline" data-open-dialog="dialog-probefahrt">Probefahrt anfragen</button>
+          <a class="btn btn--primary" href="#daten">Technische Daten</a>
+          <a class="btn btn--outline" href="#service">Kontakt &amp; Service</a>
         </div>
       </div>
     </section>
+    <!-- INFO-BEREICH (Service, Fragen, Unternehmen, Rechtliches) -->
+    <div class="info-area">
+    <section class="info-block" id="service" aria-labelledby="service-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
+        <div class="info-block__body">
+          <p>Du hast Fragen zum V7, zum Laden oder zur Technik? Unser Kundenservice berät dich persönlich.</p>
+          <dl class="info-list">
+            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
+            <div><dt>E-Mail</dt><dd>service@velora-motors.example</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag 8–18 Uhr, Samstag 9–14 Uhr</dd></div>
+            <div><dt>Beratung vor Ort</dt><dd>Den V7 kannst du in ausgewählten VELORA-Häusern ansehen. Einen Termin vereinbarst du telefonisch.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="faq" aria-labelledby="faq-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="faq-title">Häufige Fragen</h2>
+        <div class="info-block__body">
+          <div class="faq">
+            <details>
+              <summary>Wie weit kommt der V7 mit einer Ladung?</summary>
+              <p>Der V7 erreicht bis zu 610 km Reichweite. Der tatsächliche Wert hängt von Fahrstil, Temperatur, Streckenprofil und Beladung ab.</p>
+            </details>
+            <details>
+              <summary>Wie schnell lässt sich der V7 laden?</summary>
+              <p>An einer DC-Schnellladesäule lädst du in rund 28 Minuten von 10 auf 80 %. Zu Hause lädst du über eine Wallbox, zum Beispiel über Nacht.</p>
+            </details>
+            <details>
+              <summary>Welche Fahrerassistenzsysteme gibt es?</summary>
+              <p>Der V7 unterstützt dich beim Spurhalten, Abstandhalten und Parken. Die Systeme entlasten auf langen Strecken, die Verantwortung für die Fahrt bleibt beim Fahrer.</p>
+            </details>
+            <details>
+              <summary>Wo kann ich den V7 ansehen?</summary>
+              <p>In ausgewählten VELORA-Häusern. Adressen und Termine erfährst du über Service &amp; Kontakt.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="ueber-uns" aria-labelledby="ueber-uns-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="ueber-uns-title">Über VELORA</h2>
+        <div class="info-block__body">
+          <p>VELORA Motors entwickelt vollelektrische Fahrzeuge für den Alltag und die lange Strecke: ruhig, klar und effizient. Wir setzen auf hochwertige Materialien, eine reduzierte Bedienung und Technik, die sich auf das Wesentliche beschränkt.</p>
+          <p>Der VELORA V7 ist unser erstes Modell, ein vollelektrisches Premium-SUV, das Komfort, Effizienz und Souveränität verbindet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="nachhaltigkeit" aria-labelledby="nachhaltigkeit-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="nachhaltigkeit-title">Nachhaltigkeit</h2>
+        <div class="info-block__body">
+          <p>Wir wollen Mobilität leiser und effizienter machen. Deshalb setzen wir auf einen rein elektrischen Antrieb, intelligentes Energiemanagement und Materialien, die lange halten.</p>
+          <p>Unser Ziel ist es, den ökologischen Fußabdruck unserer Fahrzeuge über den gesamten Lebenszyklus schrittweise zu senken. Konkrete Kennzahlen veröffentlichen wir, sobald sie belastbar vorliegen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="datenschutz" aria-labelledby="datenschutz-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="datenschutz-title">Datenschutz</h2>
+        <div class="info-block__body">
+          <p>Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Dienste. Wir speichern keine personenbezogenen Daten von dir.</p>
+          <p>Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Verbindungsdaten (zum Beispiel die IP-Adresse), um die Seite auszuliefern. Diese Daten dienen ausschließlich dem Betrieb der Seite.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-block" id="impressum" aria-labelledby="impressum-title">
+      <div class="container info-block__grid">
+        <h2 class="info-block__title" id="impressum-title">Impressum</h2>
+        <div class="info-block__body">
+          <p>Angaben gemäß § 5 DDG:<br>VELORA Motors GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
+          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
+          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+        </div>
+      </div>
+    </section>
+    </div>
   </main>
 
   <!-- K. FOOTER -->
-  <footer class="site-footer" id="unternehmen">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
@@ -289,11 +425,12 @@
         </div>
 
         <nav class="footer__col" aria-labelledby="f-modelle">
-          <h2 class="footer__title" id="f-modelle">Modelle</h2>
+          <h2 class="footer__title" id="f-modelle">Modell</h2>
           <ul>
             <li><a href="#v7">VELORA V7</a></li>
-            <li><button type="button" class="linklike" data-open-dialog="dialog-konfigurator">Konfigurator</button></li>
-            <li><button type="button" class="linklike" data-open-dialog="dialog-probefahrt">Probefahrt</button></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#interieur">Interieur</a></li>
+            <li><a href="#daten">Technische Daten</a></li>
           </ul>
         </nav>
 
@@ -301,28 +438,24 @@
           <h2 class="footer__title" id="f-service">Service</h2>
           <ul>
             <li><a href="#laden">Laden</a></li>
-            <li><a href="#" data-dummy>Händlersuche</a></li>
-            <li><a href="#" data-dummy>Garantie &amp; Wartung</a></li>
-            <li><a href="#" data-dummy>Kontakt</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
+            <li><a href="#service">Kontakt</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-labelledby="f-unternehmen">
           <h2 class="footer__title" id="f-unternehmen">Unternehmen</h2>
           <ul>
-            <li><a href="#" data-dummy>Über VELORA</a></li>
-            <li><a href="#" data-dummy>Nachhaltigkeit</a></li>
-            <li><a href="#" data-dummy>Karriere</a></li>
-            <li><a href="#" data-dummy>Presse</a></li>
+            <li><a href="#ueber-uns">Über VELORA</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
           </ul>
         </nav>
 
         <nav class="footer__col" aria-labelledby="f-recht">
           <h2 class="footer__title" id="f-recht">Rechtliches</h2>
           <ul>
-            <li><a href="#" data-dummy>Datenschutz</a></li>
-            <li><a href="#" data-dummy>Impressum</a></li>
-            <li><a href="#" data-dummy>Kontakt</a></li>
+            <li><a href="#datenschutz">Datenschutz</a></li>
+            <li><a href="#impressum">Impressum</a></li>
           </ul>
         </nav>
       </div>
@@ -334,22 +467,6 @@
     </div>
   </footer>
 
-  <!-- Dummy-Dialoge (intern, keine externen Seiten) -->
-  <dialog class="dialog" id="dialog-konfigurator" aria-labelledby="dialog-konfigurator-title">
-    <form method="dialog" class="dialog__body">
-      <h2 class="h3" id="dialog-konfigurator-title">Konfigurator</h2>
-      <p>Der VELORA Konfigurator wird gerade vorbereitet. Bis dahin kannst du den V7 auf dieser Seite in Ruhe entdecken.</p>
-      <button class="btn btn--primary" value="close">Schließen</button>
-    </form>
-  </dialog>
-
-  <dialog class="dialog" id="dialog-probefahrt" aria-labelledby="dialog-probefahrt-title">
-    <form method="dialog" class="dialog__body">
-      <h2 class="h3" id="dialog-probefahrt-title">Probefahrt anfragen</h2>
-      <p>Die Terminanfrage für eine Probefahrt ist in Kürze online möglich.</p>
-      <button class="btn btn--primary" value="close">Schließen</button>
-    </form>
-  </dialog>
 
   <script src="js/main.js" defer></script>
 </body>
