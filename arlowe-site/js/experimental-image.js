@@ -1,27 +1,32 @@
 /*
  * <experimental-image>
  *
- * Bild-Container der Galerie. Das <img> steht im HTML-Markup (Light DOM);
- * die Komponente ergänzt ausschließlich das KI-Label als HTML/CSS-Overlay:
- * weißer, schlichter Text unten rechts in der Bildecke (ohne Kasten),
- * nach dem Vorbild eines realen Shops.
+ * Bild-Container. Das <img> steht im HTML-Markup (Light DOM); die Komponente
+ * ergänzt ausschließlich das KI-Label als HTML/CSS-Overlay.
  *
- *   Label-Text: "Diese Bilder wurden von KI generiert"
+ * Label: das offizielle EU-Icon "Fully AI-Generated" (schwarz) der Europäischen
+ * Kommission, auf allen Seiten dieselbe Datei (assets/eu-ai-generated-black.svg).
  *
  * Attribute:
- *   data-ai-label   Dieses Bild trägt das Label (hier: nur das erste Bild
- *                   der Galerie, wie beim Vorbild-Shop)
+ *   data-ai-label   Dieses Bild trägt das Label (hier: nur das erste Bild der Galerie)
  *   show-ai-label   Label wird angezeigt (entspricht dem Prop "showAiLabel")
  *
- * Ohne explizites show-ai-label wird die Bedingung aus
- * window.VELORA_CONDITION übernommen (siehe condition.js): Nur Bilder mit
- * data-ai-label zeigen das Label, und nur in Version B. Das Bild selbst wird nie verändert oder
- * dupliziert. Das Label ist absolut positioniert und beeinflusst daher weder
- * Elementgröße noch Layout oder Scrollhöhe. In Version A existiert kein
- * Label-Element im DOM.
+ * Ohne explizites show-ai-label wird die Bedingung aus window.VELORA_CONDITION
+ * übernommen (siehe condition.js): Nur Bilder mit data-ai-label zeigen das Label, und nur in Version B.
+ *
+ * Das Bild selbst wird nie verändert oder dupliziert. Das Label ist absolut
+ * positioniert und beeinflusst daher weder Elementgröße noch Layout oder
+ * Scrollhöhe. In Version A existiert kein Label-Element im DOM, und die
+ * Icon-Datei wird nicht geladen.
  */
 (function () {
-  var LABEL_TEXT = "Diese Bilder wurden von KI generiert";
+  var LABEL_SRC = "assets/eu-ai-generated-black.svg";
+  var LABEL_ALT = "Als KI-generiert gekennzeichnet";
+
+  // Version B: Icon früh laden, damit es zusammen mit dem Bild erscheint.
+  if (window.VELORA_CONDITION === "ai") {
+    new Image().src = LABEL_SRC;
+  }
 
   class ExperimentalImage extends HTMLElement {
     static get observedAttributes() {
@@ -49,9 +54,12 @@
       var show = this.hasAttribute("show-ai-label");
 
       if (show && !label) {
-        label = document.createElement("span");
+        label = document.createElement("img");
         label.className = "xi__label";
-        label.textContent = LABEL_TEXT;
+        label.src = LABEL_SRC;
+        label.alt = LABEL_ALT;
+        label.decoding = "async";
+        label.draggable = false;
         this.appendChild(label);
       } else if (!show && label) {
         label.remove();

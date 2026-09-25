@@ -25,3 +25,5 @@ python3 -m http.server 3004 --directory arlowe-site
 Dann z. B. `http://localhost:3002/?v=a` bzw. `?v=b` öffnen.
 
 Alle Seiten dienen nur der Produktinformation (keine Kauffunktionen). Jeder Link führt zu einem Abschnitt derselben Seite.
+
+Das Kennzeichnungs-Icon ist das offizielle EU-Icon der Europäischen Kommission (frei nutzbar ohne Namensnennung), auf allen Seiten dieselbe Datei in `assets/`.
