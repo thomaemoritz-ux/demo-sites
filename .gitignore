@@ -1,23 +1,24 @@
-# Nur die Websites sollen veröffentlicht werden.
+# Nur die Websites unter ki-labels/ werden veröffentlicht.
 # Alles Folgende bleibt lokal auf diesem Rechner.
 
-# Original-Bilder und ZIP-Archive (die fertigen Bilder liegen in den Site-Ordnern)
+# ZIP-Archive und Original-Bilder (die fertigen Bilder liegen in den Site-Ordnern)
 *.zip
-/*.png
+/ki-labels/quellen/
 
-# Projekt-Notizen und Werkzeug-Konfiguration (enthalten Studiendetails)
+# Andere Aufgabe (Gap-Analyse) – nicht Teil der Websites
+/gap-analyse/
+
+# Projekt-Notizen (enthalten Studiendetails) und Werkzeug-Konfiguration
 /CLAUDE.md
-*/README.md
+/ki-labels/LINKS.md
+/ki-labels/*/README.md
 /.claude/
-
-# Systemdateien
-.DS_Store
-.Rhistory
-
-# Lokale Link-Notiz (enthält die Zuordnung A/B)
-/LINKS.md
 
 # Weitere Dateien im Workspace, die nicht zu den Websites gehören
 /*.xlsx
 /*.docx
 /*.pdf
+
+# Systemdateien
+.DS_Store
+.Rhistory
