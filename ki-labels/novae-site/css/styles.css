@@ -410,7 +410,7 @@ experimental-image img.xi__label {
    -------------------------------------------------------------------------- */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, min(54vw, 960px));
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(54vw, 890px));
   align-items: center;
   min-height: 88vh;
   min-height: 88svh;
@@ -762,4 +762,13 @@ experimental-image img.xi__label {
 @media (max-width: 900px) {
   .info-block__grid { grid-template-columns: 1fr; }
   .info-list > div { grid-template-columns: 1fr; }
+}
+
+/* Bildgrößen: nie mehr als etwa das 1,1-Fache der Originalauflösung
+   (Originale: product 518, ingredient 475, routine 527, application 704 px breit). */
+@media (max-width: 900px) {
+  .xi--product     { max-width: 550px; }
+  .xi--ingredient  { max-width: 505px; }
+  .xi--routine     { max-width: 560px; }
+  .xi--application { max-width: 760px; }
 }

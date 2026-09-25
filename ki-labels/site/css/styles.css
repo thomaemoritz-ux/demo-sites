@@ -357,22 +357,22 @@ experimental-image img.xi__label {
 /* Formate je Bild (stabile Boxen -> kein Layout Shift) */
 /* --trim: gemessene Randartefakte der Quelldateien (oben/links)
    exterior: 2 Zeilen · detail: 5 Zeilen · interior: 2 Zeilen/12 Spalten · driving: 5 Zeilen/11 Spalten */
-.xi--hero     { height: clamp(240px, 19.5vw, 440px); --trim: 1; }
-.xi--exterior { aspect-ratio: 822 / 277; --trim: 1.012; }
+.xi--hero     { width: 100%; max-width: 1800px; margin-inline: auto; height: clamp(240px, min(19.5vw, 351px), 440px); --trim: 1; }
+.xi--exterior { aspect-ratio: 822 / 277; --trim: 1.012; max-width: 870px; margin-inline: auto; }
 .xi--detail   { aspect-ratio: 822 / 326; --trim: 1.02; }
-.xi--interior { aspect-ratio: 844 / 277; --trim: 1.02; max-width: 1760px; margin-inline: auto; }
-.xi--driving  { aspect-ratio: 844 / 326; --trim: 1.02; max-width: 1760px; margin-inline: auto; }
+.xi--interior { aspect-ratio: 844 / 277; --trim: 1.02; max-width: 890px; margin-inline: auto; }
+.xi--driving  { aspect-ratio: 844 / 326; --trim: 1.02; max-width: 890px; margin-inline: auto; }
 
 .xi--hero img { object-position: 80% 50%; }
 
 @media (max-width: 720px) {
-  .xi--exterior { aspect-ratio: 2 / 1; }
+  .xi--exterior { aspect-ratio: 2 / 1; max-width: 585px; }
   .xi--exterior img { object-position: 65% 50%; }
-  .xi--detail   { aspect-ratio: 4 / 3; }
+  .xi--detail   { aspect-ratio: 4 / 3; max-width: 460px; margin-inline: auto; }
   .xi--detail img { object-position: 40% 50%; }
-  .xi--interior { aspect-ratio: 16 / 10; }
+  .xi--interior { aspect-ratio: 16 / 10; max-width: 465px; }
   .xi--interior img { object-position: 60% 50%; }
-  .xi--driving  { aspect-ratio: 16 / 10; }
+  .xi--driving  { aspect-ratio: 16 / 10; max-width: 550px; }
   .xi--driving img { object-position: 72% 50%; }
 }
 

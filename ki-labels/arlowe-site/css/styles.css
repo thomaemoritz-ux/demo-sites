@@ -652,3 +652,8 @@ experimental-image img.xi__label {
 .sizes-text { margin-top: 8px; font-size: 13px; color: var(--ink); }
 .info-block { scroll-margin-top: calc(var(--header-h) + 8px); }
 .accordion details[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+/* Bildgrößen: Galeriebilder (510 px) höchstens ca. 1,1-fach darstellen */
+@media (min-width: 541px) and (max-width: 900px) {
+  .gallery { margin-inline: auto; max-width: 540px; }
+}

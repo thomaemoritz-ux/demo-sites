@@ -776,3 +776,8 @@ experimental-image img.xi__label {
 /* Sprungziele: Produktkarten und Kategorien */
 .card[id], .catlinks__col[id] { scroll-margin-top: calc(var(--header-h) + 24px); }
 .card:target, .card.is-found { box-shadow: 0 0 0 3px var(--yellow), 0 8px 24px rgba(1, 42, 77, 0.14); }
+
+/* Bildgrößen: Produktfotos (360 px) höchstens ca. 1,1-fach darstellen */
+@media (max-width: 900px) {
+  .products { max-width: 770px; }
+}
